@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44EE5D521D9848100D0FC33 /* SlipProtocolDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */; };
+		D44EE5D721D98B2F00D0FC33 /* KissPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */; };
+		D44EE5DB21D9CA6200D0FC33 /* SlipProtocolEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */; };
+		D48E9B2A21D8636C0081E99D /* TncConfigMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2921D8636C0081E99D /* TncConfigMenuViewController.swift */; };
+		D48E9B2C21D868C40081E99D /* PowerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2B21D868C40081E99D /* PowerSettingsViewController.swift */; };
+		D48E9B2E21D8693F0081E99D /* KissParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2D21D8693F0081E99D /* KissParametersViewController.swift */; };
+		D48E9B3021D869890081E99D /* AudioInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2F21D869890081E99D /* AudioInputViewController.swift */; };
+		D48E9B3221D869DB0081E99D /* AudioOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B3121D869DB0081E99D /* AudioOutputViewController.swift */; };
+		D4EA51D821D9400A00B1A8C5 /* TncInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA51D721D9400A00B1A8C5 /* TncInformationViewController.swift */; };
+		D50657241DF2F4C8002B7557 /* UUIDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50657231DF2F4C8002B7557 /* UUIDKey.swift */; };
+		D50657261DF45E04002B7557 /* UartModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50657251DF45E04002B7557 /* UartModuleViewController.swift */; };
+		D5B24DDC1DEE393B00D33B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */; };
+		D5B24DE11DEE393B00D33B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B24DDF1DEE393B00D33B5A /* Main.storyboard */; };
+		D5B24DE31DEE393B00D33B5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B24DE21DEE393B00D33B5A /* Assets.xcassets */; };
+		D5B24DE61DEE393B00D33B5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B24DE41DEE393B00D33B5A /* LaunchScreen.storyboard */; };
+		D5B24DEE1DEE399800D33B5A /* BLECentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */; };
+		D5B24DF11DEF153A00D33B5A /* PeripheralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B24DEF1DEF153A00D33B5A /* PeripheralTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlipProtocolDecoder.swift; sourceTree = "<group>"; };
+		D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KissPacket.swift; sourceTree = "<group>"; };
+		D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipProtocolEncoder.swift; sourceTree = "<group>"; };
+		D48E9B2921D8636C0081E99D /* TncConfigMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TncConfigMenuViewController.swift; sourceTree = "<group>"; };
+		D48E9B2B21D868C40081E99D /* PowerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSettingsViewController.swift; sourceTree = "<group>"; };
+		D48E9B2D21D8693F0081E99D /* KissParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KissParametersViewController.swift; sourceTree = "<group>"; };
+		D48E9B2F21D869890081E99D /* AudioInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInputViewController.swift; sourceTree = "<group>"; };
+		D48E9B3121D869DB0081E99D /* AudioOutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutputViewController.swift; sourceTree = "<group>"; };
+		D4EA51D621D9332100B1A8C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D4EA51D721D9400A00B1A8C5 /* TncInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TncInformationViewController.swift; sourceTree = "<group>"; };
+		D50657231DF2F4C8002B7557 /* UUIDKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUIDKey.swift; sourceTree = "<group>"; };
+		D50657251DF45E04002B7557 /* UartModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UartModuleViewController.swift; sourceTree = "<group>"; };
+		D5B24DD81DEE393B00D33B5A /* Mobilinkd TNC Config.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobilinkd TNC Config.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D5B24DE01DEE393B00D33B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5B24DE21DEE393B00D33B5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5B24DE51DEE393B00D33B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5B24DE71DEE393B00D33B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralViewController.swift; sourceTree = "<group>"; };
+		D5B24DEF1DEF153A00D33B5A /* PeripheralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5B24DD51DEE393B00D33B5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5B24DCF1DEE393B00D33B5A = {
+			isa = PBXGroup;
+			children = (
+				D5B24DDA1DEE393B00D33B5A /* Mobilinkd TNC Config */,
+				D5B24DD91DEE393B00D33B5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5B24DD91DEE393B00D33B5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5B24DD81DEE393B00D33B5A /* Mobilinkd TNC Config.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5B24DDA1DEE393B00D33B5A /* Mobilinkd TNC Config */ = {
+			isa = PBXGroup;
+			children = (
+				D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */,
+				D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */,
+				D50657251DF45E04002B7557 /* UartModuleViewController.swift */,
+				D5B24DEF1DEF153A00D33B5A /* PeripheralTableViewCell.swift */,
+				D50657231DF2F4C8002B7557 /* UUIDKey.swift */,
+				D5B24DDF1DEE393B00D33B5A /* Main.storyboard */,
+				D48E9B3121D869DB0081E99D /* AudioOutputViewController.swift */,
+				D48E9B2F21D869890081E99D /* AudioInputViewController.swift */,
+				D48E9B2D21D8693F0081E99D /* KissParametersViewController.swift */,
+				D48E9B2B21D868C40081E99D /* PowerSettingsViewController.swift */,
+				D48E9B2921D8636C0081E99D /* TncConfigMenuViewController.swift */,
+				D5B24DE21DEE393B00D33B5A /* Assets.xcassets */,
+				D5B24DE41DEE393B00D33B5A /* LaunchScreen.storyboard */,
+				D5B24DE71DEE393B00D33B5A /* Info.plist */,
+				D4EA51D721D9400A00B1A8C5 /* TncInformationViewController.swift */,
+				D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */,
+				D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */,
+				D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */,
+			);
+			path = "Mobilinkd TNC Config";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5B24DD71DEE393B00D33B5A /* Mobilinkd TNC Config */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5B24DEA1DEE393B00D33B5A /* Build configuration list for PBXNativeTarget "Mobilinkd TNC Config" */;
+			buildPhases = (
+				D5B24DD41DEE393B00D33B5A /* Sources */,
+				D5B24DD51DEE393B00D33B5A /* Frameworks */,
+				D5B24DD61DEE393B00D33B5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mobilinkd TNC Config";
+			productName = "Basic Chat";
+			productReference = D5B24DD81DEE393B00D33B5A /* Mobilinkd TNC Config.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5B24DD01DEE393B00D33B5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Vanguard Logic LLC";
+				TargetAttributes = {
+					D5B24DD71DEE393B00D33B5A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = JF25DV5W75;
+						LastSwiftMigration = 1010;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D5B24DD31DEE393B00D33B5A /* Build configuration list for PBXProject "Mobilinkd TNC Config" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5B24DCF1DEE393B00D33B5A;
+			productRefGroup = D5B24DD91DEE393B00D33B5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5B24DD71DEE393B00D33B5A /* Mobilinkd TNC Config */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5B24DD61DEE393B00D33B5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B24DE61DEE393B00D33B5A /* LaunchScreen.storyboard in Resources */,
+				D5B24DE31DEE393B00D33B5A /* Assets.xcassets in Resources */,
+				D5B24DE11DEE393B00D33B5A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5B24DD41DEE393B00D33B5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D48E9B3221D869DB0081E99D /* AudioOutputViewController.swift in Sources */,
+				D48E9B2C21D868C40081E99D /* PowerSettingsViewController.swift in Sources */,
+				D50657241DF2F4C8002B7557 /* UUIDKey.swift in Sources */,
+				D48E9B3021D869890081E99D /* AudioInputViewController.swift in Sources */,
+				D44EE5DB21D9CA6200D0FC33 /* SlipProtocolEncoder.swift in Sources */,
+				D48E9B2E21D8693F0081E99D /* KissParametersViewController.swift in Sources */,
+				D5B24DEE1DEE399800D33B5A /* BLECentralViewController.swift in Sources */,
+				D44EE5D521D9848100D0FC33 /* SlipProtocolDecoder.swift in Sources */,
+				D5B24DDC1DEE393B00D33B5A /* AppDelegate.swift in Sources */,
+				D50657261DF45E04002B7557 /* UartModuleViewController.swift in Sources */,
+				D5B24DF11DEF153A00D33B5A /* PeripheralTableViewCell.swift in Sources */,
+				D4EA51D821D9400A00B1A8C5 /* TncInformationViewController.swift in Sources */,
+				D48E9B2A21D8636C0081E99D /* TncConfigMenuViewController.swift in Sources */,
+				D44EE5D721D98B2F00D0FC33 /* KissPacket.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D5B24DDF1DEE393B00D33B5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5B24DE01DEE393B00D33B5A /* Base */,
+				D4EA51D621D9332100B1A8C5 /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D5B24DE41DEE393B00D33B5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5B24DE51DEE393B00D33B5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5B24DE81DEE393B00D33B5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5B24DE91DEE393B00D33B5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5B24DEB1DEE393B00D33B5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JF25DV5W75;
+				INFOPLIST_FILE = "$(SRCROOT)/Mobilinkd TNC Config/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilinkd.testing.Basic-Chat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		D5B24DEC1DEE393B00D33B5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JF25DV5W75;
+				INFOPLIST_FILE = "$(SRCROOT)/Mobilinkd TNC Config/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilinkd.testing.Basic-Chat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5B24DD31DEE393B00D33B5A /* Build configuration list for PBXProject "Mobilinkd TNC Config" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B24DE81DEE393B00D33B5A /* Debug */,
+				D5B24DE91DEE393B00D33B5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5B24DEA1DEE393B00D33B5A /* Build configuration list for PBXNativeTarget "Mobilinkd TNC Config" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B24DEB1DEE393B00D33B5A /* Debug */,
+				D5B24DEC1DEE393B00D33B5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5B24DD01DEE393B00D33B5A /* Project object */;
+}

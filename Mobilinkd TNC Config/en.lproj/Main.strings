@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "RSSI"; ObjectID = "0wW-qX-zLz"; */
+"0wW-qX-zLz.text" = "RSSI";
+
+/* Class = "UILabel"; text = "Peripheral Label"; ObjectID = "0wd-Uc-DEI"; */
+"0wd-Uc-DEI.text" = "Peripheral Label";
+
+/* Class = "UILabel"; text = "-3dB"; ObjectID = "6OV-ST-nHn"; */
+"6OV-ST-nHn.text" = "-3dB";
+
+/* Class = "UILabel"; accessibilityLabel = "Not Connected"; ObjectID = "7Y7-Dq-kXK"; */
+"7Y7-Dq-kXK.accessibilityLabel" = "Not Connected";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "IOf-8r-9U5"; */
+"IOf-8r-9U5.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "JCd-Zx-XVq"; */
+"JCd-Zx-XVq.text" = "0";
+
+/* Class = "UITextView"; text = "Data goes here..."; ObjectID = "ObH-3Y-DNE"; */
+"ObH-3Y-DNE.text" = "Data goes here...";
+
+/* Class = "UILabel"; accessibilityLabel = "Firmware Version Value"; ObjectID = "Pr2-3l-wGO"; */
+"Pr2-3l-wGO.accessibilityLabel" = "Firmware Version Value";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Zpc-YI-2Vg"; */
+"Zpc-YI-2Vg.text" = "0";
+
+/* Class = "UILabel"; text = "On / Off"; ObjectID = "acc-1I-fGN"; */
+"acc-1I-fGN.text" = "On / Off";
+
+/* Class = "UIBarButtonItem"; title = "Disconnect"; ObjectID = "bh9-F4-hZD"; */
+"bh9-F4-hZD.title" = "Disconnect";
+
+/* Class = "UITableViewController"; title = "TNCConfigMenuController"; ObjectID = "dSc-BU-aIp"; */
+"dSc-BU-aIp.title" = "TNCConfigMenuController";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "jHl-s6-Yg8"; */
+"jHl-s6-Yg8.normalTitle" = "Send";
+
+/* Class = "UILabel"; text = "9dB"; ObjectID = "knh-VM-JDt"; */
+"knh-VM-JDt.text" = "9dB";
+
+/* Class = "UILabel"; accessibilityHint = "Bluetooth network address identifier"; ObjectID = "lCX-of-rFD"; */
+"lCX-of-rFD.accessibilityHint" = "Bluetooth network address identifier";
+
+/* Class = "UILabel"; accessibilityLabel = "MAC Address"; ObjectID = "lCX-of-rFD"; */
+"lCX-of-rFD.accessibilityLabel" = "MAC Address";
+
+/* Class = "UILabel"; text = "6dB"; ObjectID = "nE4-xN-GZa"; */
+"nE4-xN-GZa.text" = "6dB";
+
+/* Class = "UILabel"; accessibilityLabel = "Firmware Version"; ObjectID = "ttQ-MB-LKp"; */
+"ttQ-MB-LKp.accessibilityLabel" = "Firmware Version";
+
+/* Class = "UINavigationItem"; title = "Mobilinkd TNC Config"; ObjectID = "w25-yy-fKD"; */
+"w25-yy-fKD.title" = "Mobilinkd TNC Config";
+
+/* Class = "UINavigationItem"; title = "TNC Configuration Menu"; ObjectID = "zqY-0j-dLU"; */
+"zqY-0j-dLU.title" = "TNC Configuration Menu";
