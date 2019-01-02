@@ -145,11 +145,6 @@ class TncConfigMenuViewController : UITableViewController {
             audioOutput.audioOutputTwistMinimum = audioOutputTwistMinimum
             audioOutput.audioOutputTwistMaximum = audioOutputTwistMaximum
             audioOutput.pttStyle = pttStyle
-        } else if let kissParameters = segue.destination as? KissParametersViewController {
-            kissParameters.txDelay = txDelay
-            kissParameters.persistence = persistence
-            kissParameters.timeSlot = timeSlot
-            kissParameters.duplex = duplex
         }
     }
 

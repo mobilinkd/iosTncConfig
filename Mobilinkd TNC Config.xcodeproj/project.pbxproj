@@ -334,9 +334,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Mobilinkd TNC Config/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilinkd.testing.Basic-Chat";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilinkd.iosConfigApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -349,9 +349,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Mobilinkd TNC Config/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilinkd.testing.Basic-Chat";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilinkd.iosConfigApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
