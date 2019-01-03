@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="3Yh-2X-Wy2" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eSA-TS-cY5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -124,7 +124,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Unknown" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Y7-Dq-kXK">
-                                                    <rect key="frame" x="99" y="16" width="205" height="13"/>
+                                                    <rect key="frame" x="46.44408218575812" y="15.612664903853393" width="97.054711650066352" height="12.991575575205733"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="macAddressValueLabel" label="Not Connected"/>
                                                     <viewLayoutGuide key="safeArea" id="gHw-hX-Dtf"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -132,7 +132,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device ID:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="lCX-of-rFD">
-                                                    <rect key="frame" x="16" y="16" width="81" height="13"/>
+                                                    <rect key="frame" x="15.875669067626985" y="16" width="52.730512628776211" height="13"/>
                                                     <accessibility key="accessibilityConfiguration" hint="Bluetooth network address identifier" identifier="macAddressTextLabel" label="MAC Address">
                                                         <accessibilityTraits key="traits" staticText="YES"/>
                                                     </accessibility>
@@ -163,14 +163,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="right" verticalHuggingPriority="251" text="Unknown" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pr2-3l-wGO">
-                                                    <rect key="frame" x="153" y="16" width="151" height="19"/>
+                                                    <rect key="frame" x="72.427233336169593" y="15.701074253092877" width="71.071560499654879" height="19.105258198828643"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="firmwareVersionValueLabel" label="Firmware Version Value"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firmware Version:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="ttQ-MB-LKp" userLabel="Firmware Version" colorLabel="IBBuiltInLabel-Gray">
-                                                    <rect key="frame" x="16" y="16" width="137" height="18"/>
+                                                    <rect key="frame" x="15.875669067626985" y="15.701074253092877" width="89.41260837053359" height="18.341047870875492"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="firmwareVersionTextLabel" label="Firmware Version"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="137" id="QhR-oK-OsX"/>
@@ -200,7 +200,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="64U-lq-Pc0">
-                                                    <rect key="frame" x="16" y="11" width="288" height="22"/>
+                                                    <rect key="frame" x="15.875669067626985" y="11.317904258244026" width="127.62312476819748" height="21.397889182691799"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Audio Input Settings...">
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -226,7 +226,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-Mq-9MU">
-                                                    <rect key="frame" x="16" y="11" width="288" height="22"/>
+                                                    <rect key="frame" x="15.875669067626985" y="10.87789295157968" width="127.62312476819748" height="22.162099510645078"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Audio Output Settings..."/>
                                                     <connections>
@@ -250,7 +250,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLJ-8x-3SZ">
-                                                    <rect key="frame" x="16" y="11" width="288" height="22"/>
+                                                    <rect key="frame" x="15.875669067626985" y="11.202091972866667" width="127.62312476819748" height="21.397889182688083"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Power Settings..."/>
                                                     <connections>
@@ -274,7 +274,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzE-d0-zF3">
-                                                    <rect key="frame" x="16" y="11" width="288" height="22"/>
+                                                    <rect key="frame" x="15.875669067626985" y="10.762080666204096" width="127.62312476819748" height="22.162099510645081"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="KISS Parameters..."/>
                                                     <connections>
@@ -298,7 +298,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-M7-Z8t">
-                                                    <rect key="frame" x="16" y="11" width="288" height="22"/>
+                                                    <rect key="frame" x="15.875669067626985" y="11.08627968749478" width="127.62312476819748" height="22.162099510648929"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="TNC Information..."/>
                                                     <connections>
@@ -370,40 +370,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Level" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-xj-01a">
-                                <rect key="frame" x="16" y="37" width="100" height="20.5"/>
+                                <rect key="frame" x="16" y="37" width="66" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="w6Y-jZ-mSn" userLabel="Battery Level Bar">
-                                <rect key="frame" x="16" y="76.5" width="288" height="2.5"/>
+                                <rect key="frame" x="16" y="77" width="128" height="2"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power On with USB Power" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ff2-yA-8Ir">
-                                <rect key="frame" x="16" y="114" width="223" height="21"/>
+                                <rect key="frame" x="16" y="114" width="146" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Fg-vH-5SG">
-                                <rect key="frame" x="255" y="109" width="51" height="31"/>
+                                <rect key="frame" x="95" y="109" width="51" height="31"/>
                                 <connections>
                                     <action selector="usbPowerOnSwitchChanged:" destination="edI-pz-ohh" eventType="valueChanged" id="jy4-Yb-QSj"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power Off with USB Power" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7GE-eA-2oQ">
-                                <rect key="frame" x="16" y="153" width="223" height="20.5"/>
+                                <rect key="frame" x="16" y="153" width="146" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uzV-nP-5CE">
-                                <rect key="frame" x="255" y="148" width="51" height="31"/>
+                                <rect key="frame" x="95" y="148" width="51" height="31"/>
                                 <connections>
                                     <action selector="usbPowerOffSwitchChanged:" destination="edI-pz-ohh" eventType="valueChanged" id="eew-AY-8gZ"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="4000mV" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTO-Xa-aER">
-                                <rect key="frame" x="132" y="36" width="172" height="20"/>
+                                <rect key="frame" x="-28" y="36" width="172" height="31"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -454,16 +454,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="TX Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kSb-tc-srp">
-                                <rect key="frame" x="20" y="104" width="90" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="TX Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kSb-tc-srp">
+                                <rect key="frame" x="16" y="65" width="113" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="63" textAlignment="right" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="y0A-zl-Zf6">
-                                <rect key="frame" x="137" y="173" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="63" textAlignment="right" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="y0A-zl-Zf6">
+                                <rect key="frame" x="-23" y="126" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="7qy-vw-pBz"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -471,16 +472,17 @@
                                     <action selector="persistenceEdited:" destination="fcE-df-epi" eventType="editingDidEnd" id="zjw-bR-Zv8"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Persistence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sMI-pd-ahx">
-                                <rect key="frame" x="20" y="173" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Persistence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sMI-pd-ahx">
+                                <rect key="frame" x="16" y="130.5" width="113" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="timeSlotTextField" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10" textAlignment="right" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xGA-Ta-Yuy">
-                                <rect key="frame" x="137" y="244" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="timeSlotTextField" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10" textAlignment="right" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xGA-Ta-Yuy">
+                                <rect key="frame" x="-23" y="192" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="yXh-HO-9xS"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -488,39 +490,37 @@
                                     <action selector="timeSlotEdited:" destination="fcE-df-epi" eventType="editingDidEnd" id="CAg-2S-SvU"/>
                                 </connections>
                             </textField>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="63" minimumValue="1" maximumValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="eD1-8M-HHi">
-                                <rect key="frame" x="210" y="173" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="63" minimumValue="1" maximumValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="eD1-8M-HHi">
+                                <rect key="frame" x="50" y="127" width="94" height="29"/>
                                 <connections>
                                     <action selector="persistenceChangeComplete:" destination="fcE-df-epi" eventType="touchUpInside" id="IDg-CX-6Av"/>
                                     <action selector="persistenceChanged:" destination="fcE-df-epi" eventType="valueChanged" id="Qw0-3B-EBI"/>
                                 </connections>
                             </stepper>
-                            <stepper opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-Ht-NrC">
-                                <rect key="frame" x="210" y="245" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <stepper opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-Ht-NrC">
+                                <rect key="frame" x="50" y="192" width="94" height="29"/>
                                 <connections>
                                     <action selector="timeSlotChangeComplete:" destination="fcE-df-epi" eventType="touchUpInside" id="nWT-28-mEj"/>
                                     <action selector="timeSlotChanged:" destination="fcE-df-epi" eventType="valueChanged" id="k5b-D4-0bS"/>
                                 </connections>
                             </stepper>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SUt-2g-4iW">
-                                <rect key="frame" x="253" y="306" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SUt-2g-4iW">
+                                <rect key="frame" x="95" y="257" width="51" height="31"/>
                                 <connections>
                                     <action selector="duplexChanged:" destination="fcE-df-epi" eventType="valueChanged" id="ZNs-Nf-8OU"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Duplex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="omT-Vb-vXW">
-                                <rect key="frame" x="20" y="306" width="110" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Full Duplex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="omT-Vb-vXW">
+                                <rect key="frame" x="16" y="261.5" width="231" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="30" textAlignment="right" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a3H-cg-8n0">
-                                <rect key="frame" x="137" y="104" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="30" textAlignment="right" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a3H-cg-8n0">
+                                <rect key="frame" x="-23" y="61" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="tIF-Al-T0E"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -528,23 +528,49 @@
                                     <action selector="txDelayEdited:" destination="fcE-df-epi" eventType="editingDidEnd" id="6Ma-oV-uc9"/>
                                 </connections>
                             </textField>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minimumValue="1" maximumValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-2f-EbM">
-                                <rect key="frame" x="210" y="104" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minimumValue="1" maximumValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-2f-EbM">
+                                <rect key="frame" x="50" y="61" width="94" height="29"/>
                                 <connections>
                                     <action selector="txDelayChangeComplete:" destination="fcE-df-epi" eventType="touchUpInside" id="KKS-Ph-ZoU"/>
                                     <action selector="txDelayChanged:" destination="fcE-df-epi" eventType="valueChanged" id="uig-sI-6OF"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Time Slot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mk4-kU-inx">
-                                <rect key="frame" x="20" y="244" width="94" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Time Slot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mk4-kU-inx">
+                                <rect key="frame" x="16" y="196" width="113" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pTH-2f-EbM" firstAttribute="leading" secondItem="a3H-cg-8n0" secondAttribute="trailing" constant="8" id="08Z-HJ-dJI"/>
+                            <constraint firstItem="eD1-8M-HHi" firstAttribute="leading" secondItem="y0A-zl-Zf6" secondAttribute="trailing" constant="8" id="2q3-AL-nSs"/>
+                            <constraint firstItem="tBQ-Ht-NrC" firstAttribute="leading" secondItem="xGA-Ta-Yuy" secondAttribute="trailing" constant="8" id="7Kk-Nt-Dvc"/>
+                            <constraint firstItem="YzU-Jh-Y4B" firstAttribute="trailing" secondItem="SUt-2g-4iW" secondAttribute="trailing" constant="16" id="8vX-38-AeV"/>
+                            <constraint firstItem="YzU-Jh-Y4B" firstAttribute="trailing" secondItem="tBQ-Ht-NrC" secondAttribute="trailing" constant="16" id="9Yp-yr-dq6"/>
+                            <constraint firstItem="eD1-8M-HHi" firstAttribute="centerY" secondItem="y0A-zl-Zf6" secondAttribute="centerY" id="Dbb-eY-Fq8"/>
+                            <constraint firstItem="SUt-2g-4iW" firstAttribute="centerY" secondItem="omT-Vb-vXW" secondAttribute="centerY" id="HkW-Bv-tId"/>
+                            <constraint firstItem="Mk4-kU-inx" firstAttribute="leading" secondItem="YzU-Jh-Y4B" secondAttribute="leading" constant="16" id="Il9-iS-2rr"/>
+                            <constraint firstItem="YzU-Jh-Y4B" firstAttribute="trailing" secondItem="eD1-8M-HHi" secondAttribute="trailing" constant="16" id="InD-lC-YvR"/>
+                            <constraint firstItem="kSb-tc-srp" firstAttribute="leading" secondItem="YzU-Jh-Y4B" secondAttribute="leading" constant="16" id="Kzv-p8-ODN"/>
+                            <constraint firstItem="pTH-2f-EbM" firstAttribute="centerY" secondItem="a3H-cg-8n0" secondAttribute="centerY" id="LXG-h2-06e"/>
+                            <constraint firstItem="Mk4-kU-inx" firstAttribute="top" secondItem="sMI-pd-ahx" secondAttribute="bottom" constant="45" id="QO9-dT-G1Q"/>
+                            <constraint firstItem="xGA-Ta-Yuy" firstAttribute="centerY" secondItem="Mk4-kU-inx" secondAttribute="centerY" id="ee1-tk-8wc"/>
+                            <constraint firstItem="sMI-pd-ahx" firstAttribute="leading" secondItem="YzU-Jh-Y4B" secondAttribute="leading" constant="16" id="gVH-vv-wi4"/>
+                            <constraint firstItem="y0A-zl-Zf6" firstAttribute="centerY" secondItem="sMI-pd-ahx" secondAttribute="centerY" id="ic4-hL-QQz"/>
+                            <constraint firstItem="tBQ-Ht-NrC" firstAttribute="centerY" secondItem="xGA-Ta-Yuy" secondAttribute="centerY" id="ifG-UO-PqK"/>
+                            <constraint firstItem="y0A-zl-Zf6" firstAttribute="leading" secondItem="sMI-pd-ahx" secondAttribute="trailing" constant="8" id="igw-Fs-DBY"/>
+                            <constraint firstItem="kSb-tc-srp" firstAttribute="top" secondItem="YzU-Jh-Y4B" secondAttribute="top" constant="45" id="jVr-tK-OVK"/>
+                            <constraint firstItem="omT-Vb-vXW" firstAttribute="leading" secondItem="YzU-Jh-Y4B" secondAttribute="leading" constant="16" id="kbc-OX-am4"/>
+                            <constraint firstItem="YzU-Jh-Y4B" firstAttribute="trailing" secondItem="pTH-2f-EbM" secondAttribute="trailing" constant="16" id="lM0-Y5-VHg"/>
+                            <constraint firstItem="xGA-Ta-Yuy" firstAttribute="leading" secondItem="Mk4-kU-inx" secondAttribute="trailing" constant="8" id="sXa-kf-MOF"/>
+                            <constraint firstItem="a3H-cg-8n0" firstAttribute="leading" secondItem="kSb-tc-srp" secondAttribute="trailing" constant="8" id="srp-Az-a3N"/>
+                            <constraint firstItem="a3H-cg-8n0" firstAttribute="centerY" secondItem="kSb-tc-srp" secondAttribute="centerY" id="to6-U2-bsQ"/>
+                            <constraint firstItem="sMI-pd-ahx" firstAttribute="top" secondItem="kSb-tc-srp" secondAttribute="bottom" constant="45" id="uT0-65-9Gg"/>
+                            <constraint firstItem="omT-Vb-vXW" firstAttribute="top" secondItem="Mk4-kU-inx" secondAttribute="bottom" constant="45" id="xMc-cj-LEy"/>
+                            <constraint firstItem="SUt-2g-4iW" firstAttribute="leading" secondItem="omT-Vb-vXW" secondAttribute="trailing" constant="8" id="yjM-8k-3mQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YzU-Jh-Y4B"/>
                     </view>
                     <connections>
@@ -570,62 +596,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hardware Version" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7g-MN-jTH">
-                                <rect key="frame" x="16" y="36" width="135.5" height="20.5"/>
+                                <rect key="frame" x="16" y="36" width="89" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Unknown" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-3M-3UZ" userLabel="hardwareVersionLabel">
-                                <rect key="frame" x="159.5" y="36" width="144.5" height="20.5"/>
+                                <rect key="frame" x="76" y="36" width="68" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="hardwareVersionLabel"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firmware Version" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uuT-so-XIa">
-                                <rect key="frame" x="16" y="64.5" width="131.5" height="20.5"/>
+                                <rect key="frame" x="16" y="65" width="86" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Unknown" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqW-Rg-NY6" userLabel="firmwareVersionLabel">
-                                <rect key="frame" x="155.5" y="64.5" width="148.5" height="20.5"/>
+                                <rect key="frame" x="74" y="65" width="70" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAC Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRY-Nw-3t1">
-                                <rect key="frame" x="16" y="93" width="104" height="20.5"/>
+                                <rect key="frame" x="16" y="93" width="68" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="00:00:00:00:00:00" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzL-ys-SbA" userLabel="macAddressLabel">
-                                <rect key="frame" x="128" y="93" width="176" height="20.5"/>
+                                <rect key="frame" x="61" y="93" width="83" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serial Number" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5O-SJ-Lbx">
-                                <rect key="frame" x="16" y="121.5" width="109" height="20.5"/>
+                                <rect key="frame" x="16" y="122" width="71" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Unknown" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6G-eP-CUX" userLabel="serialNumberLabel">
-                                <rect key="frame" x="133" y="121.5" width="171" height="20.5"/>
+                                <rect key="frame" x="63" y="122" width="81" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Date/Time" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YrF-Wn-xSx">
-                                <rect key="frame" x="16" y="150" width="79.5" height="20.5"/>
+                                <rect key="frame" x="16" y="150" width="52" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0000-00-00 00:00:00" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5rC-yG-hQC" userLabel="dateTimeLabel">
-                                <rect key="frame" x="103.5" y="150" width="200.5" height="20.5"/>
+                                <rect key="frame" x="49" y="150" width="95" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
