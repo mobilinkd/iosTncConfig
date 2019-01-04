@@ -10,6 +10,7 @@
 		D44EE5D521D9848100D0FC33 /* SlipProtocolDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */; };
 		D44EE5D721D98B2F00D0FC33 /* KissPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */; };
 		D44EE5DB21D9CA6200D0FC33 /* SlipProtocolEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */; };
+		D44EE5DD21DF060700D0FC33 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D44EE5DC21DF060700D0FC33 /* logo.png */; };
 		D48E9B2A21D8636C0081E99D /* TncConfigMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2921D8636C0081E99D /* TncConfigMenuViewController.swift */; };
 		D48E9B2C21D868C40081E99D /* PowerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2B21D868C40081E99D /* PowerSettingsViewController.swift */; };
 		D48E9B2E21D8693F0081E99D /* KissParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2D21D8693F0081E99D /* KissParametersViewController.swift */; };
@@ -30,6 +31,7 @@
 		D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlipProtocolDecoder.swift; sourceTree = "<group>"; };
 		D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KissPacket.swift; sourceTree = "<group>"; };
 		D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipProtocolEncoder.swift; sourceTree = "<group>"; };
+		D44EE5DC21DF060700D0FC33 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D48E9B2921D8636C0081E99D /* TncConfigMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TncConfigMenuViewController.swift; sourceTree = "<group>"; };
 		D48E9B2B21D868C40081E99D /* PowerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSettingsViewController.swift; sourceTree = "<group>"; };
 		D48E9B2D21D8693F0081E99D /* KissParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KissParametersViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		D5B24DDA1DEE393B00D33B5A /* Mobilinkd TNC Config */ = {
 			isa = PBXGroup;
 			children = (
+				D44EE5DC21DF060700D0FC33 /* logo.png */,
 				D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */,
 				D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */,
 				D50657251DF45E04002B7557 /* UartModuleViewController.swift */,
@@ -165,6 +168,7 @@
 				D5B24DE61DEE393B00D33B5A /* LaunchScreen.storyboard in Resources */,
 				D5B24DE31DEE393B00D33B5A /* Assets.xcassets in Resources */,
 				D5B24DE11DEE393B00D33B5A /* Main.storyboard in Resources */,
+				D44EE5DD21DF060700D0FC33 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
