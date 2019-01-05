@@ -35,8 +35,7 @@ extension UIView {
 class TncConfigMenuViewController : UITableViewController {
     
     @IBOutlet weak var tncNameLabel: UILabel!
-    @IBOutlet weak var firmwareVersionLabel: UILabel!
-    @IBOutlet weak var saveSettings: UIButton!
+    @IBOutlet weak var saveSettings: UIBarButtonItem!
     
     static let tncInputLevelNotification = NSNotification.Name(rawValue: "tncInputLevel")
     static let tncBatteryLevelNotification = NSNotification.Name(rawValue: "tncBatteryLevel")
@@ -295,7 +294,6 @@ class TncConfigMenuViewController : UITableViewController {
                 break
             case .FIRMWARE_VERSION:
                 firmwareVersion = packet.asString()
-                firmwareVersionLabel.text = firmwareVersion
                 NotificationCenter.default.post(
                     name: TncConfigMenuViewController.tncFirmwareVerionNotification,
                     object: packet)
@@ -418,20 +416,14 @@ class TncConfigMenuViewController : UITableViewController {
         }
     }
 
-    @IBAction func saveSettingsPressed(_ sender: UIButton) {
-        sender.animateButtonUp()
+
+    @IBAction func saveSettings(_ sender: UIBarButtonItem) {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.SaveEepromSettings())
         saveSettings.isEnabled = false
     }
-    
-    @IBAction func saveSettingsTouchUpOutside(_ sender: UIButton) {
-        sender.animateButtonUp()
-    }
-    @IBAction func saveSettingsTouchDown(_ sender: UIButton) {
-        sender.animateButtonDown()
-    }
+
     public func settingsChanged() {
         if hasSaveSettings {
             saveSettings.isEnabled = true
@@ -465,7 +457,7 @@ class TncConfigMenuViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 6
     }
     
     /*

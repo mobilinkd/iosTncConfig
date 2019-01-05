@@ -18,7 +18,6 @@
 		D48E9B3221D869DB0081E99D /* AudioOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B3121D869DB0081E99D /* AudioOutputViewController.swift */; };
 		D4EA51D821D9400A00B1A8C5 /* TncInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA51D721D9400A00B1A8C5 /* TncInformationViewController.swift */; };
 		D50657241DF2F4C8002B7557 /* UUIDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50657231DF2F4C8002B7557 /* UUIDKey.swift */; };
-		D50657261DF45E04002B7557 /* UartModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50657251DF45E04002B7557 /* UartModuleViewController.swift */; };
 		D5B24DDC1DEE393B00D33B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */; };
 		D5B24DE11DEE393B00D33B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B24DDF1DEE393B00D33B5A /* Main.storyboard */; };
 		D5B24DE31DEE393B00D33B5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B24DE21DEE393B00D33B5A /* Assets.xcassets */; };
@@ -40,7 +39,6 @@
 		D4EA51D621D9332100B1A8C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D4EA51D721D9400A00B1A8C5 /* TncInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TncInformationViewController.swift; sourceTree = "<group>"; };
 		D50657231DF2F4C8002B7557 /* UUIDKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUIDKey.swift; sourceTree = "<group>"; };
-		D50657251DF45E04002B7557 /* UartModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UartModuleViewController.swift; sourceTree = "<group>"; };
 		D5B24DD81DEE393B00D33B5A /* Mobilinkd TNC Config.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobilinkd TNC Config.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B24DE01DEE393B00D33B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				D44EE5DC21DF060700D0FC33 /* logo.png */,
 				D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */,
 				D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */,
-				D50657251DF45E04002B7557 /* UartModuleViewController.swift */,
 				D5B24DEF1DEF153A00D33B5A /* PeripheralTableViewCell.swift */,
 				D50657231DF2F4C8002B7557 /* UUIDKey.swift */,
 				D5B24DDF1DEE393B00D33B5A /* Main.storyboard */,
@@ -188,7 +185,6 @@
 				D5B24DEE1DEE399800D33B5A /* BLECentralViewController.swift in Sources */,
 				D44EE5D521D9848100D0FC33 /* SlipProtocolDecoder.swift in Sources */,
 				D5B24DDC1DEE393B00D33B5A /* AppDelegate.swift in Sources */,
-				D50657261DF45E04002B7557 /* UartModuleViewController.swift in Sources */,
 				D5B24DF11DEF153A00D33B5A /* PeripheralTableViewCell.swift in Sources */,
 				D4EA51D821D9400A00B1A8C5 /* TncInformationViewController.swift in Sources */,
 				D48E9B2A21D8636C0081E99D /* TncConfigMenuViewController.swift in Sources */,
