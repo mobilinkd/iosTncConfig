@@ -116,6 +116,20 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     
     func startScan() {
         peripherals = []
+        if let uuid = UserDefaults.standard.string(forKey: "last_peripheral_identifier") {
+            let identifier = UUID(uuidString: uuid)
+            if identifier != nil {
+                if let known = centralManager?.retrievePeripherals(withIdentifiers: [identifier!]) {
+                    for p in known {
+                        peripherals.append(p)
+                        RSSIs.append(-99)
+                    }
+                }
+            }
+        }
+        if peripherals.count > 0 {
+            refreshScanView()
+        }
         print("Now Scanning...")
         self.timer.invalidate()
         centralManager?.scanForPeripherals(withServices: [BLEService_UUID] , options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
@@ -157,11 +171,15 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
         // It seems we get duplicates -- don't know why yet.  Filter them.
+        var index = 0
         for aPeripheral in self.peripherals {
             if peripheral.identifier == aPeripheral.identifier {
+                self.RSSIs[index] = RSSI
+                refreshScanView()
                 print("skipping already known peripheral: \(String(describing: peripheral.name))")
                 return
             }
+            index += 1
         }
         
         self.peripherals.append(peripheral)
@@ -179,6 +197,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     
     //-Connection
     func connectToDevice (_ device: CBPeripheral) {
+        indicator.startAnimating()
         centralManager?.connect(device, options: nil)
     }
     
@@ -188,11 +207,10 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      */
     //-Connected
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        indicator.startAnimating()
         print("*****************************")
         print("Connection complete")
         print("Peripheral info: \(String(describing: blePeripheral))")
-        
+        UserDefaults.standard.set(peripheral.identifier.uuidString, forKey: "last_peripheral_identifier")
         //Stop Scan- We don't need to scan once we've connected to a peripheral. We got what we came for.
         centralManager?.stopScan()
         print("Scan Stopped")
@@ -228,6 +246,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      */
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        indicator.stopAnimating()
         if error != nil {
             print("Failed to connect to peripheral")
             return

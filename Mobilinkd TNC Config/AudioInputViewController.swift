@@ -222,7 +222,6 @@ class AudioInputViewController: UIViewController {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.PollInputLevel())
-        
         disconnectBle()
     }
     
