@@ -444,7 +444,15 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let device = peripherals[indexPath.row]
-        connectToDevice(device)
+        let alert = UIAlertController(
+            title: "Connect To TNC",
+            message: "Connecting to a TNC with an active connection can prevent it from receiving or transmitting packets.\n\nAre you sure you wish to continue?",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: { action in
+            self.connectToDevice(device)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     func unathorized() {
