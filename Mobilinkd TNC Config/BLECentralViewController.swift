@@ -25,9 +25,11 @@ extension Data {
     }
 }
 
-class KissDecoder
-{
-    
+
+func disconnectBle() {
+    NotificationCenter.default.post(
+        name: BLECentralViewController.bleDisconnectRequest,
+        object: nil)
 }
 
 class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
@@ -35,6 +37,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
 {
     static let bleDataReceiveNotification = NSNotification.Name(rawValue: "bleDataReceive")
     static let bleDataSendNotification = NSNotification.Name(rawValue: "bleDataSend")
+    static let bleDisconnectNotification = NSNotification.Name(rawValue: "disconnected")
+    static let bleDisconnectRequest = NSNotification.Name(rawValue: "disconnect")
 
     let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
 
@@ -68,6 +72,10 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         startScan()
     }
     
+    @IBAction func unwindToBleCentral(segue: UIStoryboardSegue) {
+        //nothing goes here
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.baseTableView.delegate = self
@@ -91,6 +99,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         disconnectFromDevice()
         super.viewDidAppear(animated)
         refreshScanView()
@@ -132,8 +141,6 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      */
     func disconnectFromDevice () {
         if blePeripheral != nil {
-            // We have a connection to the device but we are not subscribed to the Transfer Characteristic for some reason.
-            // Therefore, we will just disconnect from the peripheral
             centralManager?.cancelPeripheralConnection(blePeripheral!)
         }
     }
@@ -171,8 +178,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     //Peripheral Connections: Connecting, Connected, Disconnected
     
     //-Connection
-    func connectToDevice () {
-        centralManager?.connect(blePeripheral!, options: nil)
+    func connectToDevice (_ device: CBPeripheral) {
+        centralManager?.connect(device, options: nil)
     }
     
     /*
@@ -189,6 +196,12 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         //Stop Scan- We don't need to scan once we've connected to a peripheral. We got what we came for.
         centralManager?.stopScan()
         print("Scan Stopped")
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.disconnectAllConnection),
+            name: BLECentralViewController.bleDisconnectRequest,
+            object: nil)
+
         
         //Erase data that we might have
         data.length = 0
@@ -197,6 +210,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         peripheral.delegate = self
         //Only look for services that matches transmit uuid
         peripheral.discoverServices([BLEService_UUID])
+        
     }
     
     @objc func bleSend(notification: NSNotification) {
@@ -220,8 +234,12 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         }
     }
     
-    func disconnectAllConnection() {
-        centralManager.cancelPeripheralConnection(blePeripheral!)
+    @objc func disconnectAllConnection() {
+        if blePeripheral != nil {
+            print("disconnectAllConnection")
+            centralManager.cancelPeripheralConnection(blePeripheral!)
+            blePeripheral = nil
+        }
     }
     
     /*
@@ -356,8 +374,12 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected")
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDisconnectNotification,
+            object: nil)
         blePeripheral = nil
         NotificationCenter.default.removeObserver(self, name: BLECentralViewController.bleDataSendNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: BLECentralViewController.bleDisconnectRequest, object: nil)
         indicator.stopAnimating()
         print("bleSend notifications unsubscribed")
     }
@@ -402,8 +424,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        blePeripheral = peripherals[indexPath.row]
-        connectToDevice()
+        let device = peripherals[indexPath.row]
+        connectToDevice(device)
     }
     
     func unathorized() {

@@ -113,6 +113,7 @@ class TncConfigMenuViewController : UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "segueToConfiguration")
         {
@@ -170,8 +171,78 @@ class TncConfigMenuViewController : UITableViewController {
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.ReadAllValues())
         print("sent ReadAllValues to TNC")
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didLoseConnection),
+            name: BLECentralViewController.bleDisconnectNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.willResignActive),
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: BLECentralViewController.bleDataReceiveNotification,
+            object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: TncConfigMenuViewController.tncModifiedNotification,
+            object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: BLECentralViewController.bleDisconnectNotification,
+            object: nil)
+    }
+
+    @objc func willResignActive(notification: NSNotification)
+    {
+        print("TncConfigMenuViewController.willResignActive")
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.PollInputLevel())
+        
+        if self.isBeingPresented {
+            disconnectBle()
+        }
+    }
+    
+    @objc func didBecomeActive(notification: NSNotification)
+    {
+        if blePeripheral == nil {
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+    }
+
+    @objc func didLoseConnection(notification: NSNotification)
+    {
+        let alert = UIAlertController(
+            title: "Lost BLE Connection",
+            message: "The connection to the TNC has been lost.  You will need to re-establish the connection.",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.navigationController?.popToRootViewController(animated: false)
+        }))
+        self.present(alert, animated: true)
+    }
+
     deinit {
         NotificationCenter.default.removeObserver(self,
             name: BLECentralViewController.bleDataReceiveNotification,
@@ -310,6 +381,14 @@ class TncConfigMenuViewController : UITableViewController {
                     name: TncConfigMenuViewController.tncSerialNumberNotification,
                     object: packet)
                 break
+            case .GET_MAC_ADDRESS:
+                let data = packet.data
+                if data.count >= 6 {
+                    macAddress = String(
+                        format: "%02X:%02X:%02X:%02X:%02X:%02X",
+                        data[0], data[1], data[2], data[3], data[4], data[5])
+                }
+                break;
             case .DATE_TIME:
                 dateTime = packet.data
                 print("date time = \((dateTime!.hexEncodedString()))")
@@ -415,8 +494,7 @@ class TncConfigMenuViewController : UITableViewController {
             print("packet type: \((packet.packetType))")
         }
     }
-
-
+    
     @IBAction func saveSettings(_ sender: UIBarButtonItem) {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,

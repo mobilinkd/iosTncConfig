@@ -18,7 +18,8 @@ class TncInformationViewController: UIViewController {
     @IBOutlet weak var macAddressLabel: UILabel!
     @IBOutlet weak var serialNumberLabel: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
-
+    @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+    
     var hardwareVersion : String?
     var firmwareVersion : String?
     var macAddress : String?
@@ -38,6 +39,24 @@ class TncInformationViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
+            selector: #selector(self.didLoseConnection),
+            name: BLECentralViewController.bleDisconnectNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.willResignActive),
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
             selector: #selector(self.dateTimeNotification),
             name: TncConfigMenuViewController.tncDateTimeNotification,
             object: nil)
@@ -47,11 +66,40 @@ class TncInformationViewController: UIViewController {
             object: KissPacketEncoder.SetDateTime())
     }
     
+    @objc func willResignActive(notification: NSNotification)
+    {
+        print("TncInformationViewController.willResignActive")
+        disconnectBle()
+    }
+
+    @objc func didBecomeActive(notification: NSNotification)
+    {
+        if blePeripheral == nil {
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+    }
+    
+    @objc func didLoseConnection(notification: NSNotification)
+    {
+        let alert = UIAlertController(
+            title: "Lost BLE Connection",
+            message: "The connection to the TNC has been lost.  You will need to re-establish the connection.",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.navigationController?.popToRootViewController(animated: false)
+        }))
+        self.present(alert, animated: true)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(
             self,
             name: TncConfigMenuViewController.tncDateTimeNotification,
+            object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: BLECentralViewController.bleDisconnectNotification,
             object: nil)
     }
     

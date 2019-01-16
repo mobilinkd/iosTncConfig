@@ -48,6 +48,18 @@ class PowerSettingsViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
+            selector: #selector(self.willResignActive),
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
             selector: #selector(self.batteryLevelNotification),
             name: TncConfigMenuViewController.tncBatteryLevelNotification,
             object: nil)
@@ -66,6 +78,11 @@ class PowerSettingsViewController: UIViewController {
 
         print("all power notification subscribed")
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didLoseConnection),
+            name: BLECentralViewController.bleDisconnectNotification,
+            object: nil)
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.GetBatteryLevel())
@@ -73,7 +90,32 @@ class PowerSettingsViewController: UIViewController {
         print("sent GetBatteryLevel to TNC")
     }
     
+    @objc func didBecomeActive(notification: NSNotification)
+    {
+        if blePeripheral == nil {
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        print("PowerSettingsViewController.didBecomeActive")
+        // Refresh battery level
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.GetBatteryLevel())
+    }
+
+    @objc func willResignActive(notification: NSNotification)
+    {
+        disconnectBle()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
         NotificationCenter.default.removeObserver(
             self,
             name: TncConfigMenuViewController.tncBatteryLevelNotification,
@@ -89,6 +131,22 @@ class PowerSettingsViewController: UIViewController {
             name: TncConfigMenuViewController.tncUsbPowerOffNotification,
             object: nil)
         print("tncUsbPowerOffNotification unsubscribed")
+        NotificationCenter.default.removeObserver(
+            self,
+            name: BLECentralViewController.bleDisconnectNotification,
+            object: nil)
+    }
+    
+    @objc func didLoseConnection(notification: NSNotification)
+    {
+        let alert = UIAlertController(
+            title: "Lost BLE Connection",
+            message: "The connection to the TNC has been lost.  You will need to re-establish the connection.",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.navigationController?.popToRootViewController(animated: false)
+        }))
+        self.present(alert, animated: true)
     }
 
     func updateBatteryLevel(level: UInt16) {

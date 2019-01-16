@@ -45,6 +45,7 @@ class KissPacketDecoder
         case FIRMWARE_VERSION = 40
         case HARDWARE_VERSION = 41
         case SERIAL_NUMBER = 47       // API 2.0
+        case GET_MAC_ADDRESS = 48     // API 2.0
         case DATE_TIME = 49           // API 2.0
         case CONNECTION_TRACKING = 70
         case USB_POWER_ON = 74
@@ -155,12 +156,13 @@ class KissPacketEncoder {
         case SEND_SPACE = 8
         case SEND_BOTH = 9
         case STOP_TX = 10
+        case RESET = 11             // API 2.0 -- restart demodulator
         case TX_VOLUME = 12
-        case INPUT_GAIN = 13          // API 2.0
+        case INPUT_GAIN = 13        // API 2.0
         case SQUELCH_LEVEL = 14
         case VERBOSITY = 17
-        case SET_INPUT_TWIST = 24         // API 2.0
-        case SET_OUTPUT_TWIST = 26        // API 2.0
+        case SET_INPUT_TWIST = 24   // API 2.0
+        case SET_OUTPUT_TWIST = 26  // API 2.0
         case TX_DELAY = 33
         case PERSISTENCE = 34
         case SLOT_TIME = 35

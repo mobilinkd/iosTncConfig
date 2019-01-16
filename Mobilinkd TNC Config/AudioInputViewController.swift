@@ -116,6 +116,8 @@ class AudioInputViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("AudioInputViewController.viewDidLoad")
 
         audioInputLevelBar.trackTintColor = UIColor.lightGray
         audioInputLevelBar.transform = audioInputLevelBar.transform.scaledBy(x: 1.0, y: 10.0)
@@ -144,6 +146,24 @@ class AudioInputViewController: UIViewController {
             audioInputTwistLabel.text = String(format: "%ddB", audioInputTwist!)
             audioInputTwistSlider.value = Float(audioInputTwist!)
         }
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.willResignActive),
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didLoseConnection),
+            name: BLECentralViewController.bleDisconnectNotification,
+            object: nil)
 
         NotificationCenter.default.addObserver(
             self,
@@ -181,8 +201,56 @@ class AudioInputViewController: UIViewController {
             self,
             name: BLECentralViewController.bleDataReceiveNotification,
             object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
     }
     
+    @objc func willResignActive(notification: NSNotification)
+    {
+        print("AudioInputViewController.willResignActive")
+        // Stop streaming input volume levels
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.PollInputLevel())
+        
+        disconnectBle()
+    }
+    
+    @objc func didBecomeActive(notification: NSNotification)
+    {
+        if blePeripheral == nil {
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        
+        print("AudioInputViewController.didBecomeActive")
+        // Resume streaming input volume levels
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.StreamInputLevel())
+    }
+    
+    @objc func didLoseConnection(notification: NSNotification)
+    {
+        let alert = UIAlertController(
+            title: "Lost BLE Connection",
+            message: "The connection to the TNC has been lost.  You will need to re-establish the connection.",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.navigationController?.popToRootViewController(animated: false)
+        }))
+        self.present(alert, animated: true)
+    }
+
     /*
      * Cannot use the TncConfigMenuViewController for audio updates because
      * the latency from the double-hop through the NotificationCenter is way
