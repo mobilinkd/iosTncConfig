@@ -27,6 +27,11 @@ extension Data {
 
 
 func disconnectBle() {
+    // This causes the demodulator to start back up if needed.
+    NotificationCenter.default.post(
+        name: BLECentralViewController.bleDataSendNotification,
+        object: KissPacketEncoder.GetBatteryLevel())
+    // Now disconnect the TNC.
     NotificationCenter.default.post(
         name: BLECentralViewController.bleDisconnectRequest,
         object: nil)
@@ -155,10 +160,12 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      */
     func disconnectFromDevice () {
         if blePeripheral != nil {
+            // Disable notification first.
+            blePeripheral!.setNotifyValue(false, for: rxCharacteristic!)
+            // Then request device disconnection.
             centralManager?.cancelPeripheralConnection(blePeripheral!)
         }
     }
-    
     
     func restoreCentralManager() {
         //Restores Central Manager delegate if something went wrong

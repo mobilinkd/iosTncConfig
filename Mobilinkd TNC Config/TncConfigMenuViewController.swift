@@ -110,6 +110,8 @@ class TncConfigMenuViewController : UITableViewController {
     var serialNumber : String?
     var dateTime : Data?
 
+    let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -150,6 +152,14 @@ class TncConfigMenuViewController : UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.isUserInteractionEnabled = false
+        
+        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.bringSubviewToFront(view)
+        indicator.startAnimating()
         
         tncNameLabel.text = peripheral?.name!
         
@@ -194,6 +204,9 @@ class TncConfigMenuViewController : UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
+        indicator.stopAnimating()
+
         NotificationCenter.default.removeObserver(
             self,
             name: UIApplication.willResignActiveNotification,
@@ -395,6 +408,11 @@ class TncConfigMenuViewController : UITableViewController {
                 NotificationCenter.default.post(
                     name: TncConfigMenuViewController.tncDateTimeNotification,
                     object: packet)
+                // This is a bit of a hack.  We know this is the last bit of
+                // data we will receive, so enable user interaction only
+                // after this has been received.
+                indicator.stopAnimating()
+                tableView.isUserInteractionEnabled = true
                 break
             case .CONNECTION_TRACKING:
                 NotificationCenter.default.post(
@@ -582,15 +600,4 @@ class TncConfigMenuViewController : UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
