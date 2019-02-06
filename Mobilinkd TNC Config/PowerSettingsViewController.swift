@@ -16,36 +16,20 @@ class PowerSettingsViewController: UIViewController {
     @IBOutlet weak var usbPowerOffSwitch: UISwitch!
     
     @IBAction func usbPowerOnSwitchChanged(_ sender: UISwitch) {
-        NotificationCenter.default.post(
-            name: BLECentralViewController.bleDataSendNotification,
-            object: KissPacketEncoder.SetUsbPowerOn(value: sender.isOn))
-        NotificationCenter.default.post(
-            name: TncConfigMenuViewController.tncModifiedNotification,
-            object: nil)
+        usbPowerOn = sender.isOn
+        sendData(KissPacketEncoder.SetUsbPowerOn(value: sender.isOn))
+        tncModified()
     }
     
     @IBAction func usbPowerOffSwitchChanged(_ sender: UISwitch) {
-        NotificationCenter.default.post(
-            name: BLECentralViewController.bleDataSendNotification,
-            object: KissPacketEncoder.SetUsbPowerOff(value: sender.isOn))
-        NotificationCenter.default.post(
-            name: TncConfigMenuViewController.tncModifiedNotification,
-            object: nil)
+        usbPowerOff = sender.isOn
+        sendData(KissPacketEncoder.SetUsbPowerOff(value: sender.isOn))
+        tncModified()
     }
-    
-    var batteryLevel : UInt16?
-    var usbPowerOn : Bool?
-    var usbPowerOff : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if batteryLevel != nil {
-            updateBatteryLevel(level: batteryLevel!)
-            batteryLevelBar.trackTintColor = UIColor.lightGray
-            batteryLevelBar.transform = batteryLevelBar.transform.scaledBy(x: 1.0, y: 10.0)
-        }
-        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.willResignActive),
@@ -88,6 +72,23 @@ class PowerSettingsViewController: UIViewController {
             object: KissPacketEncoder.GetBatteryLevel())
         
         print("sent GetBatteryLevel to TNC")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+        if batteryLevel != nil {
+            updateBatteryLevel(level: batteryLevel!)
+            batteryLevelBar.trackTintColor = UIColor.lightGray
+            batteryLevelBar.transform = batteryLevelBar.transform.scaledBy(x: 1.0, y: 10.0)
+        }
+        
+        if usbPowerOn != nil {
+            usbPowerOnSwitch.isOn = usbPowerOn!
+        }
+        
+        if usbPowerOff != nil {
+            usbPowerOffSwitch.isOn = usbPowerOff!
+        }
     }
     
     @objc func didBecomeActive(notification: NSNotification)

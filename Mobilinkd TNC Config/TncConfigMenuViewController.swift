@@ -15,6 +15,11 @@ var persistence : UInt8?
 var timeSlot : UInt8?
 var duplex : Bool?
 
+// Power Settings
+var batteryLevel : UInt16?
+var usbPowerOn : Bool?
+var usbPowerOff : Bool?
+
 extension UIView {
     
     func animateButtonDown() {
@@ -30,6 +35,12 @@ extension UIView {
             self.transform = CGAffineTransform.identity
         }, completion: nil)
     }
+}
+
+func tncModified() {
+    NotificationCenter.default.post(
+        name: TncConfigMenuViewController.tncModifiedNotification,
+        object: nil)
 }
 
 class TncConfigMenuViewController : UITableViewController {
@@ -97,12 +108,6 @@ class TncConfigMenuViewController : UITableViewController {
     var audioOutputTwistMinimum : Int8?
     var audioOutputTwistMaximum : Int8?
 
-
-    // TNC Power
-    var batteryLevel : UInt16?
-    var usbPowerOn : Bool?
-    var usbPowerOff : Bool?
-
     // TNC Information
     var hardwareVersion : String?
     var firmwareVersion : String?
@@ -128,10 +133,6 @@ class TncConfigMenuViewController : UITableViewController {
                     tncInformation.updateDateTime(value)
                 }
             }
-        } else if let tncPower = segue.destination as? PowerSettingsViewController {
-            tncPower.batteryLevel = batteryLevel
-            tncPower.usbPowerOn = usbPowerOn
-            tncPower.usbPowerOff = usbPowerOff
         } else if let audioInput = segue.destination as? AudioInputViewController {
             audioInput.audioInputGain = audioInputGain
             audioInput.audioInputGainMinimum = audioInputGainMinimum
@@ -199,30 +200,23 @@ class TncConfigMenuViewController : UITableViewController {
             selector: #selector(self.didBecomeActive),
             name: UIApplication.didBecomeActiveNotification,
             object: nil)
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        indicator.startAnimating()
+        
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.ReadAllValues())
+        print("sent ReadAllValues to TNC")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         indicator.stopAnimating()
-
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIApplication.willResignActiveNotification,
-            object: nil)
-        NotificationCenter.default.removeObserver(
-            self,
-            name: BLECentralViewController.bleDataReceiveNotification,
-            object: nil)
-        NotificationCenter.default.removeObserver(
-            self,
-            name: TncConfigMenuViewController.tncModifiedNotification,
-            object: nil)
-        NotificationCenter.default.removeObserver(
-            self,
-            name: BLECentralViewController.bleDisconnectNotification,
-            object: nil)
     }
 
     @objc func willResignActive(notification: NSNotification)

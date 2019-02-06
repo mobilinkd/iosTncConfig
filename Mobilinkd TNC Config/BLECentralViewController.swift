@@ -2,6 +2,7 @@
 //  BLECentralViewController.swift
 //  Based on https://github.com/adafruit/Basic-Chat (MIT License)
 //  Copyright (c) 2017 Trevor Beaton for Adafruit Industries
+//  Copyright (c) 2019 Mobilinkd LLC
 //
 
 import Foundation
@@ -25,29 +26,53 @@ extension Data {
     }
 }
 
-
 func disconnectBle() {
     // This causes the demodulator to start back up if needed.
-    NotificationCenter.default.post(
-        name: BLECentralViewController.bleDataSendNotification,
-        object: KissPacketEncoder.GetBatteryLevel())
+    sendData(KissPacketEncoder.GetBatteryLevel())
     // Now disconnect the TNC.
     NotificationCenter.default.post(
         name: BLECentralViewController.bleDisconnectRequest,
         object: nil)
 }
 
+/*
+ * Don't use the notification center to post the message.  Write it directly
+ * to the peripheral's characteristic.  This is an attempt to reduce write
+ * latency but it may introduce some ordering of operations issues.
+ */
+func sendDataNow(_ data: Data) {
+    if blePeripheral != nil && txCharacteristic != nil {
+        blePeripheral!.writeValue(data, for: txCharacteristic!,
+            type: CBCharacteristicWriteType.withoutResponse)
+    }
+}
+
+/*
+ * Post a write request to the notification center.  This preserves global
+ * ordering of write operations (actually all operations).  For example, it
+ * will ensure that all writes posted will occur before a later disconnect
+ * request is received through the notification center.
+ */
+func sendData(_ data: Data) {
+    NotificationCenter.default.post(
+        name: BLECentralViewController.bleDataSendNotification,
+        object: data)
+}
+
 class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource
 {
-    static let bleDataReceiveNotification = NSNotification.Name(rawValue: "bleDataReceive")
-    static let bleDataSendNotification = NSNotification.Name(rawValue: "bleDataSend")
-    static let bleDisconnectNotification = NSNotification.Name(rawValue: "disconnected")
-    static let bleDisconnectRequest = NSNotification.Name(rawValue: "disconnect")
+    static let bleDataReceiveNotification =
+        NSNotification.Name(rawValue: "bleDataReceive")
+    static let bleDataSendNotification =
+        NSNotification.Name(rawValue: "bleDataSend")
+    static let bleDisconnectNotification =
+        NSNotification.Name(rawValue: "disconnected")
+    static let bleDisconnectRequest =
+        NSNotification.Name(rawValue: "disconnect")
 
     let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
 
-    
     //Data
     var centralManager : CBCentralManager!
     var RSSIs = [NSNumber]()
@@ -93,8 +118,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         // for, discovering, and connecting to advertising peripherals.
         
         centralManager = CBCentralManager(delegate: self, queue: nil)
-        let backButton = UIBarButtonItem(title: "Disconnect", style: .plain,
-                                         target: nil, action: nil)
+        let backButton = UIBarButtonItem(
+            title: "Disconnect", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButton
         
         indicator.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
@@ -104,7 +129,6 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         disconnectFromDevice()
         super.viewDidAppear(animated)
         refreshScanView()
@@ -117,8 +141,10 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         centralManager?.stopScan()
     }
     
-    /*Okay, now that we have our CBCentalManager up and running, it's time to start searching for devices. You can do this by calling the "scanForPeripherals" method.*/
-    
+    /*
+     * Now that the CBCentalManager exists, it's time to start searching for
+     * devices. You can do this by calling the "scanForPeripherals" method.
+     */
     func startScan() {
         peripherals = []
         if let uuid = UserDefaults.standard.string(forKey: "last_peripheral_identifier") {
@@ -127,14 +153,16 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
                 if let known = centralManager?.retrievePeripherals(withIdentifiers: [identifier!]) {
                     for p in known {
                         peripherals.append(p)
-                        RSSIs.append(-99)
+                        RSSIs.append(100)
                     }
                 }
             }
         }
+        
         if peripherals.count > 0 {
             refreshScanView()
         }
+        
         print("Now Scanning...")
         self.timer.invalidate()
         centralManager?.scanForPeripherals(withServices: [BLEService_UUID] , options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
@@ -214,9 +242,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      */
     //-Connected
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("*****************************")
         print("Connection complete")
-        print("Peripheral info: \(String(describing: blePeripheral))")
+        print("Peripheral info: \(String(describing: peripheral))")
         UserDefaults.standard.set(peripheral.identifier.uuidString, forKey: "last_peripheral_identifier")
         //Stop Scan- We don't need to scan once we've connected to a peripheral. We got what we came for.
         centralManager?.stopScan()
@@ -226,7 +253,6 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
             selector: #selector(self.disconnectAllConnection),
             name: BLECentralViewController.bleDisconnectRequest,
             object: nil)
-
         
         //Erase data that we might have
         data.length = 0
@@ -235,7 +261,6 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         peripheral.delegate = self
         //Only look for services that matches transmit uuid
         peripheral.discoverServices([BLEService_UUID])
-        
     }
     
     @objc func bleSend(notification: NSNotification) {
@@ -243,7 +268,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         if let data = notification.object as? Data {
             print("sending: \((data.hexEncodedString() as String))")
             blePeripheral!.writeValue(data, for: txCharacteristic!,
-                                      type: CBCharacteristicWriteType.withoutResponse)
+                type: CBCharacteristicWriteType.withoutResponse)
         }
     }
 
@@ -272,9 +297,9 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      Invoked when you discover the peripheral’s available services.
      This method is invoked when your app calls the discoverServices(_:) method. If the services of the peripheral are successfully discovered, you can access them through the peripheral’s services property. If successful, the error parameter is nil. If unsuccessful, the error parameter returns the cause of the failure.
      */
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        print("*******************************************************")
-        
+    func peripheral(_ peripheral: CBPeripheral,
+        didDiscoverServices error: Error?)
+    {
         if ((error) != nil) {
             print("Error discovering services: \(error!.localizedDescription)")
             return
@@ -285,9 +310,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         }
         //We need to discover the all characteristic
         for service in services {
-            
             peripheral.discoverCharacteristics(nil, for: service)
-            // bleService = service
         }
         print("Discovered Services: \(services)")
     }
@@ -297,10 +320,10 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      This method is invoked when your app calls the discoverCharacteristics(_:for:) method. If the characteristics of the specified service are successfully discovered, you can access them through the service's characteristics property. If successful, the error parameter is nil. If unsuccessful, the error parameter returns the cause of the failure.
      */
     
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        
-        print("*******************************************************")
-        
+    func peripheral(_ peripheral: CBPeripheral,
+        didDiscoverCharacteristicsFor service: CBService,
+        error: Error?)
+    {
         if ((error) != nil) {
             print("Error discovering services: \(error!.localizedDescription)")
             return
@@ -328,30 +351,36 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
             peripheral.discoverDescriptors(for: characteristic)
         }
     }
-    
-    // Getting Values From Characteristic
-    
-    /*After you've found a characteristic of a service that you are interested in, you can read the characteristic's value by calling the peripheral "readValueForCharacteristic" method within the "didDiscoverCharacteristicsFor service" delegate.
-     */
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        if characteristic == rxCharacteristic {
-            if let data = characteristic.value {
-                // characteristicASCIIValue = data.hexEncodedString()
-                // print("Value Recieved: \((characteristicASCIIValue as String))")
-                NotificationCenter.default.post(name: BLECentralViewController.bleDataReceiveNotification, object: data)
-            }
-        }
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
-        print("*******************************************************")
-        
+
+    func peripheral(_ peripheral: CBPeripheral,
+        didUpdateValueFor characteristic: CBCharacteristic, error: Error?)
+    {
         if error != nil {
             print("\(error.debugDescription)")
             return
         }
+
+        if characteristic == rxCharacteristic {
+            if let data = characteristic.value {
+                // characteristicASCIIValue = data.hexEncodedString()
+                // print("Value Recieved: \((characteristicASCIIValue as String))")
+                NotificationCenter.default.post(
+                    name: BLECentralViewController.bleDataReceiveNotification,
+                    object: data)
+            }
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral,
+        didDiscoverDescriptorsFor characteristic: CBCharacteristic,
+        error: Error?)
+    {
+        if error != nil {
+            print("\(error.debugDescription)")
+            return
+        }
+        
         if ((characteristic.descriptors) != nil) {
-            
             for x in characteristic.descriptors!{
                 let descript = x as CBDescriptor?
                 print("function name: DidDiscoverDescriptorForChar \(String(describing: descript?.description))")
@@ -361,21 +390,21 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         }
     }
     
-    
-    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-        print("*******************************************************")
-        
+    func peripheral(_ peripheral: CBPeripheral,
+        didUpdateNotificationStateFor characteristic: CBCharacteristic,
+        error: Error?)
+    {
         indicator.stopAnimating()
         
         if (error != nil) {
             print("Error changing notification state:\(String(describing: error?.localizedDescription))")
-            
+            return
         } else {
             print("Characteristic's value subscribed")
         }
         
         if (characteristic.isNotifying) {
-            print ("Subscribed. Notification has begun for: \(characteristic.uuid)")
+            print("Subscribed. Notification has begun for: \(characteristic.uuid)")
             print("Using a negotiated MTU of: \(peripheral.maximumWriteValueLength(for: .withoutResponse))")
             
             // Only move to the next scene after notification registration is complete.
@@ -396,10 +425,15 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         }
     }
     
-    
-    
-    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+    func centralManager(_ central: CBCentralManager,
+        didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
+    {
         print("Disconnected")
+
+        if error != nil {
+            print("didDisconnectPeripheral: \(error.debugDescription)")
+        }
+        
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDisconnectNotification,
             object: nil)
@@ -438,13 +472,16 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         let peripheral = self.peripherals[indexPath.row]
         let RSSI = self.RSSIs[indexPath.row]
         
-        
         if peripheral.name == nil {
             cell.peripheralLabel.text = "nil"
         } else {
             cell.peripheralLabel.text = peripheral.name
         }
-        cell.rssiLabel.text = "RSSI: \(RSSI)"
+        if (Int(truncating: RSSI) == 100) {
+            cell.rssiLabel.text = "Last Connected Device"
+        } else {
+            cell.rssiLabel.text = "RSSI: \(RSSI)"
+        }
         
         return cell
     }
@@ -453,7 +490,9 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         let device = peripherals[indexPath.row]
         let alert = UIAlertController(
             title: "Connect To TNC",
-            message: "Connecting to a TNC with an active connection can prevent it from receiving or transmitting packets.\n\nAre you sure you wish to continue?",
+            message: "Connecting to a TNC with an active connection can " +
+                "prevent it from receiving or transmitting packets.\n\n" +
+                "Are you sure you wish to continue?",
             preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: { action in
             self.connectToDevice(device)

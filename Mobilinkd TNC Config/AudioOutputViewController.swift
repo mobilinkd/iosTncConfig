@@ -76,9 +76,7 @@ class AudioOutputViewController: UIViewController {
     @IBAction func audioOutputGainChanged(_ sender: UISlider) {
         updateOutputGain(value: Int16(audioOutputGainSlider.value))
         if CACurrentMediaTime() - lastOutputGainUpdateTime > 0.1 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
+            sendData(KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
             lastOutputGainUpdateTime = CACurrentMediaTime()
         }
     }
@@ -145,30 +143,19 @@ class AudioOutputViewController: UIViewController {
     
     func transmitTone() {
         if transmitToneSwitch.selectedSegmentIndex == 0 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.TransmitMark())
+            sendDataNow(KissPacketEncoder.TransmitMark())
         } else if transmitToneSwitch.selectedSegmentIndex == 1 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.TransmitSpace())
-
+            sendDataNow(KissPacketEncoder.TransmitSpace())
         } else if transmitToneSwitch.selectedSegmentIndex == 2 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.TransmitBoth())
+            sendDataNow(KissPacketEncoder.TransmitBoth())
         }
         audioOutputGainSlider.isEnabled = true
         audioOutputTwistSlider.isEnabled = true
     }
     
     func stopTransmit() {
-        NotificationCenter.default.post(
-            name: BLECentralViewController.bleDataSendNotification,
-            object: KissPacketEncoder.StopTransmit())
-        NotificationCenter.default.post(
-            name: BLECentralViewController.bleDataSendNotification,
-            object: KissPacketEncoder.PollInputLevel())
+        sendDataNow(KissPacketEncoder.StopTransmit())
+        sendData(KissPacketEncoder.PollInputLevel())
         audioOutputGainSlider.isEnabled = false
         audioOutputTwistSlider.isEnabled = false
     }

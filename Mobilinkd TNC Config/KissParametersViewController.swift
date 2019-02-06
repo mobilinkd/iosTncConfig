@@ -19,23 +19,18 @@ class KissParametersViewController: UIViewController {
     @IBOutlet weak var duplexSwitch: UISwitch!
 
     @IBAction func txDelayEdited(_ sender: UITextField) {
-        if let value = UInt8(sender.text!) {
-            if value >= 0 && value <= 255 {
-                txDelay = value
-                txDelayStepper.value = Double(value)
-                NotificationCenter.default.post(
-                    name: BLECentralViewController.bleDataSendNotification,
-                    object: KissPacketEncoder.SetTxDelay(value: txDelay!))
-                NotificationCenter.default.post(
-                    name: TncConfigMenuViewController.tncModifiedNotification,
-                    object: nil)
-            } else {
-                if txDelay != nil {
-                    sender.text = txDelay!.description
-                } else {
-                    sender.text = ""
-                }
-            }
+        let value = UInt8(sender.text!)
+        if value != nil {
+            txDelay = value!
+            self.txDelayStepper.value = Double(value!)
+            NotificationCenter.default.post(
+                name: BLECentralViewController.bleDataSendNotification,
+                object: KissPacketEncoder.SetTxDelay(value: value!))
+            NotificationCenter.default.post(
+                name: TncConfigMenuViewController.tncModifiedNotification,
+                object: nil)
+        } else {
+            sender.text = self.txDelayStepper.value.description
         }
     }
     
@@ -44,9 +39,29 @@ class KissParametersViewController: UIViewController {
     }
     
     @IBAction func txDelayChangeComplete(_ sender: UIStepper) {
+        txDelay = UInt8(sender.value)
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.SetTxDelay(value: UInt8(sender.value)))
+        NotificationCenter.default.post(
+            name: TncConfigMenuViewController.tncModifiedNotification,
+            object: nil)
     }
     
     @IBAction func persistenceEdited(_ sender: UITextField) {
+        let value = UInt8(sender.text!)
+        if value != nil {
+            persistence = value!
+            self.persistenceStepper.value = Double(value!)
+            NotificationCenter.default.post(
+                name: BLECentralViewController.bleDataSendNotification,
+                object: KissPacketEncoder.SetPersistence(value: value!))
+            NotificationCenter.default.post(
+                name: TncConfigMenuViewController.tncModifiedNotification,
+                object: nil)
+        } else {
+            sender.text = self.persistenceStepper.value.description
+        }
     }
     
     @IBAction func persistenceChanged(_ sender: UIStepper) {
@@ -54,9 +69,29 @@ class KissParametersViewController: UIViewController {
     }
     
     @IBAction func persistenceChangeComplete(_ sender: UIStepper) {
+        persistence = UInt8(sender.value)
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.SetPersistence(value: UInt8(sender.value)))
+        NotificationCenter.default.post(
+            name: TncConfigMenuViewController.tncModifiedNotification,
+            object: nil)
     }
     
     @IBAction func timeSlotEdited(_ sender: UITextField) {
+        let value = UInt8(sender.text!)
+        if value != nil {
+            timeSlot = value!
+            self.timeSlotStepper.value = Double(value!)
+            NotificationCenter.default.post(
+                name: BLECentralViewController.bleDataSendNotification,
+                object: KissPacketEncoder.SetTxDelay(value: value!))
+            NotificationCenter.default.post(
+                name: TncConfigMenuViewController.tncModifiedNotification,
+                object: nil)
+        } else {
+            sender.text = self.timeSlotStepper.value.description
+        }
     }
     
     @IBAction func timeSlotChanged(_ sender: UIStepper) {
@@ -65,6 +100,12 @@ class KissParametersViewController: UIViewController {
     
     @IBAction func timeSlotChangeComplete(_ sender: UIStepper) {
         timeSlot = UInt8(sender.value)
+        NotificationCenter.default.post(
+            name: BLECentralViewController.bleDataSendNotification,
+            object: KissPacketEncoder.SetSlotTime(value: UInt8(sender.value)))
+        NotificationCenter.default.post(
+            name: TncConfigMenuViewController.tncModifiedNotification,
+            object: nil)
     }
     
     @IBAction func duplexChanged(_ sender: UISwitch) {
@@ -102,6 +143,9 @@ class KissParametersViewController: UIViewController {
         txDelayTextField.clearsOnBeginEditing = true
         persistenceTextField.clearsOnBeginEditing = true
         timeSlotTextField.clearsOnBeginEditing = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
 
         NotificationCenter.default.addObserver(
             self,
@@ -113,7 +157,7 @@ class KissParametersViewController: UIViewController {
             selector: #selector(self.willResignActive),
             name: UIApplication.willResignActiveNotification,
             object: nil)
-
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.didBecomeActive),

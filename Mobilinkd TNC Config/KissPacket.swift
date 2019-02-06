@@ -321,7 +321,7 @@ class KissPacketEncoder {
         return SlipProtocolEncoder.encode(
             value: KissPacketEncoder(hardwareType: .SET_OUTPUT_TWIST, data: UInt8(bitPattern: value)).encode())
     }
-    
+
     /*
      * The requirement for the TNC (really the STM32 RTC inside the TNC) is
      * that the datetime value is a binary-coded decimal representation of the
@@ -337,7 +337,9 @@ class KissPacketEncoder {
      * - Year is a full 4 digits
      * - Weekday is indexed at 1 = Sunday (some made up standard, I guess)
      *
-     * Here we have to conver
+     * Here we have to convert the calendar to UTC, then extract the
+     * date and time components, converting the weekday index to match
+     * the ISO standard.
      */
     private static func make_time() -> Data {
         

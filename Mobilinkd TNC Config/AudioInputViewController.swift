@@ -139,7 +139,7 @@ class AudioInputViewController: UIViewController {
             audioInputTwistSlider.maximumValue = Float(audioInputTwistMaximum!)
         }
         if audioInputGain != nil {
-            audioInputGainLabel.text = String(format: "%ddB", audioInputGain!)
+            audioInputGainLabel.text = String(format: "%d", audioInputGain!)
             audioInputGainSlider.value = Float(audioInputGain!)
         }
         if audioInputTwist != nil {
