@@ -149,15 +149,25 @@ class AudioOutputViewController: UIViewController {
         } else if transmitToneSwitch.selectedSegmentIndex == 2 {
             sendDataNow(KissPacketEncoder.TransmitBoth())
         }
+        
         audioOutputGainSlider.isEnabled = true
+        audioOutputGainSlider.alpha = 1.0
         audioOutputTwistSlider.isEnabled = true
+        audioOutputTwistSlider.alpha = 1.0
+        audioOutputGainLabel.isEnabled = true
+        audioOutputTwistLabel.isEnabled = true
     }
     
     func stopTransmit() {
         sendDataNow(KissPacketEncoder.StopTransmit())
         sendData(KissPacketEncoder.PollInputLevel())
+        
         audioOutputGainSlider.isEnabled = false
+        audioOutputGainSlider.alpha = 0.2
         audioOutputTwistSlider.isEnabled = false
+        audioOutputTwistSlider.alpha = 0.2
+        audioOutputGainLabel.isEnabled = false
+        audioOutputTwistLabel.isEnabled = false
     }
     
     func setAudioOutputGain(value: Int16) {
@@ -172,7 +182,12 @@ class AudioOutputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         audioOutputGainSlider.isEnabled = false
+        audioOutputGainSlider.alpha = 0.2
         audioOutputTwistSlider.isEnabled = false
+        audioOutputTwistSlider.alpha = 0.2
+        audioOutputGainLabel.isEnabled = false
+        audioOutputTwistLabel.isEnabled = false
+        
         if audioOutputGain != nil {
             updateOutputGain(value: audioOutputGain!)
         }
@@ -197,6 +212,18 @@ class AudioOutputViewController: UIViewController {
             selector: #selector(self.didLoseConnection),
             name: BLECentralViewController.bleDisconnectNotification,
             object: nil)
+        
+        let count = UserDefaults.standard.integer(forKey: "output_view_count")
+        if (count < 1) {
+            let alert = UIAlertController(title: nil,
+                message: "Press Transmit to enable Gain and Twist sliders.",
+                preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(count + 1, forKey: "output_view_count")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

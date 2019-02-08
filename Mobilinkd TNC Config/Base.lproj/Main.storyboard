@@ -49,13 +49,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="RSSI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wW-qX-zLz">
-                                                    <rect key="frame" x="20" y="50" width="374" height="21"/>
+                                                    <rect key="frame" x="16" y="50" width="288" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peripheral Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wd-Uc-DEI">
-                                                    <rect key="frame" x="20" y="23" width="374" height="18"/>
+                                                    <rect key="frame" x="16" y="23" width="288" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -529,7 +529,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="63" textAlignment="right" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="y0A-zl-Zf6">
-                                <rect key="frame" x="231" y="150" width="65" height="30"/>
+                                <rect key="frame" x="231" y="149.66666666666666" width="65" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="7qy-vw-pBz"/>
                                 </constraints>
@@ -566,7 +566,7 @@
                                 </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-Ht-NrC">
-                                <rect key="frame" x="304" y="216" width="94" height="29"/>
+                                <rect key="frame" x="304" y="215.66666666666666" width="94" height="29"/>
                                 <connections>
                                     <action selector="timeSlotChangeComplete:" destination="fcE-df-epi" eventType="touchUpInside" id="nWT-28-mEj"/>
                                     <action selector="timeSlotChanged:" destination="fcE-df-epi" eventType="valueChanged" id="k5b-D4-0bS"/>
@@ -597,7 +597,7 @@
                                 </connections>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minimumValue="1" maximumValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-2f-EbM">
-                                <rect key="frame" x="304" y="85" width="94" height="29"/>
+                                <rect key="frame" x="304" y="84.666666666666671" width="94" height="29"/>
                                 <connections>
                                     <action selector="txDelayChangeComplete:" destination="fcE-df-epi" eventType="touchUpInside" id="KKS-Ph-ZoU"/>
                                     <action selector="txDelayChanged:" destination="fcE-df-epi" eventType="valueChanged" id="uig-sI-6OF"/>
@@ -701,7 +701,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="MAC Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRY-Nw-3t1">
-                                <rect key="frame" x="20" y="192" width="374" height="20.333333333333343"/>
+                                <rect key="frame" x="20" y="192" width="374" height="20.666666666666657"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -713,13 +713,13 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="00:00:00:00:00:00" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzL-ys-SbA" userLabel="macAddressLabel">
-                                <rect key="frame" x="20" y="220.33333333333334" width="374" height="20.333333333333343"/>
+                                <rect key="frame" x="20" y="220.66666666666666" width="374" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Serial Number" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5O-SJ-Lbx">
-                                <rect key="frame" x="20" y="256.66666666666669" width="374" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="257" width="374" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -731,13 +731,13 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Unknown" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6G-eP-CUX" userLabel="serialNumberLabel">
-                                <rect key="frame" x="20" y="285" width="374" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="285.66666666666669" width="374" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Date/Time" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YrF-Wn-xSx">
-                                <rect key="frame" x="20" y="321.33333333333331" width="374" height="21"/>
+                                <rect key="frame" x="20" y="322" width="374" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -749,7 +749,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="0000-00-00 00:00:00" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5rC-yG-hQC" userLabel="dateTimeLabel">
-                                <rect key="frame" x="20" y="350.33333333333331" width="374" height="21"/>
+                                <rect key="frame" x="20" y="351" width="374" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.02202202994" green="0.1326792041" blue="0.50289426810000004" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1306,13 +1306,6 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="gNH-et-Jqk">
-                                                <rect key="frame" x="14" y="148.33333333333334" width="386" height="31"/>
-                                                <connections>
-                                                    <action selector="audioInputLevelChangeComplete:" destination="7BM-Sf-gun" eventType="touchUpInside" id="5VD-Ia-9J9"/>
-                                                    <action selector="audioInputLevelChanged:" destination="7BM-Sf-gun" eventType="valueChanged" id="OLp-Hd-yW8"/>
-                                                </connections>
-                                            </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="inputGainMinLabel" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zpc-YI-2Vg">
                                                 <rect key="frame" x="24" y="186.33333333333334" width="8" height="15"/>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -1381,6 +1374,13 @@
                                                     <action selector="autoAdjustButtonPressed:" destination="7BM-Sf-gun" eventType="touchUpInside" id="nkc-b1-rPM"/>
                                                 </connections>
                                             </button>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="gNH-et-Jqk">
+                                                <rect key="frame" x="22" y="148.33333333333334" width="370" height="31"/>
+                                                <connections>
+                                                    <action selector="audioInputLevelChangeComplete:" destination="7BM-Sf-gun" eventType="touchUpInside" id="5VD-Ia-9J9"/>
+                                                    <action selector="audioInputLevelChanged:" destination="7BM-Sf-gun" eventType="valueChanged" id="OLp-Hd-yW8"/>
+                                                </connections>
+                                            </slider>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1404,7 +1404,7 @@
                                             <constraint firstItem="9ln-1c-Yg4" firstAttribute="top" secondItem="IOf-8r-9U5" secondAttribute="bottom" constant="14" id="VJ4-tp-1ri"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="CPh-Aw-AwT" secondAttribute="trailing" constant="16" id="VMQ-Lf-T4M"/>
                                             <constraint firstItem="Zpc-YI-2Vg" firstAttribute="leading" secondItem="0Mz-48-KeE" secondAttribute="leadingMargin" constant="16" id="WIX-xG-iFS"/>
-                                            <constraint firstItem="gNH-et-Jqk" firstAttribute="leading" secondItem="0Mz-48-KeE" secondAttribute="leadingMargin" constant="8" id="X0k-jx-zcO"/>
+                                            <constraint firstItem="gNH-et-Jqk" firstAttribute="leading" secondItem="0Mz-48-KeE" secondAttribute="leadingMargin" constant="16" id="X0k-jx-zcO"/>
                                             <constraint firstItem="knh-VM-JDt" firstAttribute="leading" secondItem="nE4-xN-GZa" secondAttribute="trailing" constant="16" id="Yqh-Cs-t1I"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="nU5-wQ-K2a" secondAttribute="trailing" constant="16" id="a7J-tJ-jUk"/>
                                             <constraint firstItem="CPh-Aw-AwT" firstAttribute="leading" secondItem="0Mz-48-KeE" secondAttribute="leadingMargin" constant="16" id="abL-By-iFh"/>
@@ -1414,7 +1414,7 @@
                                             <constraint firstItem="iox-w7-rWd" firstAttribute="top" secondItem="9ln-1c-Yg4" secondAttribute="bottom" constant="8" id="da3-GD-WdF"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="NDW-17-OoP" secondAttribute="trailing" constant="24" id="fY0-VW-laE"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="knh-VM-JDt" secondAttribute="trailing" constant="16" id="h2g-3p-Y7l"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="gNH-et-Jqk" secondAttribute="trailing" constant="8" id="jJT-NU-G0l"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="gNH-et-Jqk" secondAttribute="trailing" constant="16" id="jJT-NU-G0l"/>
                                             <constraint firstItem="T3T-Yb-a2A" firstAttribute="leading" secondItem="0Mz-48-KeE" secondAttribute="leadingMargin" constant="16" id="kFd-XT-JL7"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="NDW-17-OoP" secondAttribute="bottom" constant="16" id="mPc-fq-jQo"/>
                                             <constraint firstItem="NDW-17-OoP" firstAttribute="top" secondItem="nE4-xN-GZa" secondAttribute="bottom" constant="16" id="md7-RE-pCW"/>
