@@ -52,6 +52,7 @@ class KissPacketDecoder
         case USB_POWER_OFF = 76
         
         case PTT_CHANNEL = 80
+        case PASSALL = 82
 
         case MIN_OUTPUT_TWIST = 119   // API 2.0
         case MAX_OUTPUT_TWIST = 120   // API 2.0
@@ -61,8 +62,16 @@ class KissPacketDecoder
         case MIN_INPUT_GAIN = 124     // API 2.0
         case MAX_INPUT_GAIN = 125     // API 2.0
         case CAPABILITIES = 126
+        
+        case EXTENDED_RANGE_1 = 0xC1
     }
     
+    enum HardwareExtended1Type : UInt8 {
+        case GET_MODEM_TYPE = 0x81
+        case SET_MODEM_TYPE = 0x82
+        case GET_SUPPORTED_MODEM_TYPES = 0x83
+    }
+
     enum Capabilities : UInt16 {
         case CAP_EEPROM_SAVE = 0x0002
         case CAP_ADJUST_INPUT = 0x0004
@@ -72,6 +81,7 @@ class KissPacketDecoder
     var port : UInt8
     var packetType : PacketType
     var hardwareType : HardwareType?
+    var hardwareExtendedType : HardwareExtended1Type?
     var capabilities : Capabilities?
     var data : Data
     var count : Int
@@ -86,7 +96,12 @@ class KissPacketDecoder
         let pType = PacketType(rawValue: (typeByte & 0x0F))!
         if incoming.count > 2 && pType == .Hardware {
             hardwareType = HardwareType(rawValue: incoming[1])
-            data = Data(incoming[2...])
+            if hardwareType == .EXTENDED_RANGE_1 {
+                hardwareExtendedType = HardwareExtended1Type(rawValue: incoming[2])
+                data = Data(incoming[3...])
+            } else {
+                data = Data(incoming[2...])
+            }
         } else {
             data = Data(incoming[1...])
         }
@@ -120,6 +135,11 @@ class KissPacketDecoder
         return hardwareType
     }
     
+    func getHardwareExtendedType() -> HardwareExtended1Type?
+    {
+        return hardwareExtendedType
+    }
+
     func isCapabilities() -> Bool {
         return hardwareType == .CAPABILITIES
     }
@@ -178,6 +198,7 @@ class KissPacketEncoder {
         case SET_USB_POWER_OFF = 75
         
         case SET_PTT_CHANNEL = 79
+        case SET_PASSALL = 81
         
         case MIN_INPUT_TWIST = 121    // API 2.0
         case MAX_INPUT_TWIST = 122    // API 2.0
@@ -186,6 +207,14 @@ class KissPacketEncoder {
         case MAX_INPUT_GAIN = 125     // API 2.0
         case CAPABILITIES = 126
         case READ_ALL_VALUES = 127
+        
+        case EXTENDED_RANGE_1 = 0xC1
+    }
+    
+    enum HardwareExtended1Type : UInt8 {
+        case GET_MODEM_TYPE = 0x81
+        case SET_MODEM_TYPE = 0x82
+        case GET_MODEM_TYPES = 0x83
     }
 
     let packetType : PacketType
@@ -221,6 +250,12 @@ class KissPacketEncoder {
         self.hardwareType = hardwareType
         self.data = Data([UInt8(data >> 8),UInt8(data & 0xFF)])
     }
+    
+    init(hardwareType: HardwareType?, hardwareExtendedType: HardwareExtended1Type?, data: UInt8) {
+        self.packetType = .Hardware
+        self.hardwareType = hardwareType
+        self.data = Data([hardwareExtendedType!.rawValue, UInt8(data & 0xFF)])
+    }
 
     func encode() -> Data {
         var result = Data()
@@ -255,6 +290,19 @@ class KissPacketEncoder {
     static func SetUsbPowerOff(value: Bool) -> Data {
         return SlipProtocolEncoder.encode(
             value: KissPacketEncoder(hardwareType: .SET_USB_POWER_OFF, data: UInt8(value ? 1 : 0)).encode())
+    }
+    
+    static func SetPassall(value: Bool) -> Data {
+        return SlipProtocolEncoder.encode(
+            value: KissPacketEncoder(hardwareType: .SET_PASSALL, data: UInt8(value ? 1 : 0)).encode())
+    }
+    
+    static func SetModemType(value: UInt8) -> Data {
+        return SlipProtocolEncoder.encode(
+            value: KissPacketEncoder(
+                hardwareType: .EXTENDED_RANGE_1,
+                hardwareExtendedType: .SET_MODEM_TYPE,
+                data: value).encode())
     }
     
     static func StreamInputLevel() -> Data {

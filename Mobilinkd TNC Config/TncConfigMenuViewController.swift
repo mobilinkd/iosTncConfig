@@ -82,6 +82,10 @@ class TncConfigMenuViewController : UITableViewController {
     static let tncCapabilitiesNotification = NSNotification.Name(rawValue: "tncCapabilities")
 
     static let tncModifiedNotification = NSNotification.Name(rawValue: "tncModified")
+    
+    static let tncSupportedModemTypesNotification = NSNotification.Name(rawValue: "tncSupportedModemTYpes")
+    static let tncModemTypeNotification = NSNotification.Name(rawValue: "tncModemTYpe")
+    static let tncPassallNotification = NSNotification.Name(rawValue: "tncPassall")
 
     var mainViewController : BLECentralViewController?
     var peripheralManager: CBPeripheralManager?
@@ -114,6 +118,11 @@ class TncConfigMenuViewController : UITableViewController {
     var macAddress : String?
     var serialNumber : String?
     var dateTime : Data?
+    
+    // Modem Configuration
+    var supportedModemTypes : [UInt8] = []
+    var modemType = UInt8(1)
+    var passall : Bool?
 
     let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
 
@@ -148,6 +157,10 @@ class TncConfigMenuViewController : UITableViewController {
             audioOutput.audioOutputTwistMinimum = audioOutputTwistMinimum
             audioOutput.audioOutputTwistMaximum = audioOutputTwistMaximum
             audioOutput.pttStyle = pttStyle
+        } else if let modemConfig = segue.destination as? ModemConfigurationViewController {
+            modemConfig.passall = passall
+            modemConfig.modemType = modemType
+            modemConfig.supportedModemTypes = supportedModemTypes
         }
     }
 
@@ -501,6 +514,37 @@ class TncConfigMenuViewController : UITableViewController {
                     name: TncConfigMenuViewController.tncCapabilitiesNotification,
                     object: packet)
                 break
+            case .PASSALL:
+                if let value = packet.asUInt8() {
+                    passall = (value != 1);
+                }
+                print("passall = \((passall!))")
+                NotificationCenter.default.post(
+                    name: TncConfigMenuViewController.tncPassallNotification,
+                    object: packet)
+                break
+            case .EXTENDED_RANGE_1:
+                switch packet.getHardwareExtendedType() {
+                case .GET_SUPPORTED_MODEM_TYPES:
+                    supportedModemTypes = [UInt8](packet.data)
+                    print("supportedModemTypes = \((packet.data.hexEncodedString()))")
+                    NotificationCenter.default.post(
+                        name: TncConfigMenuViewController.tncSupportedModemTypesNotification,
+                        object: packet)
+                   break
+                case .GET_MODEM_TYPE:
+                    if let value = packet.asUInt8() {
+                        modemType = value
+                    }
+                    print("modemType = \((modemType))")
+                    NotificationCenter.default.post(
+                        name: TncConfigMenuViewController.tncModemTypeNotification,
+                        object: packet)
+                    break
+                default:
+                    print("extended packet type: \((packet.packetType))")
+                }
+                break
             }
         } else {
             print("packet type: \((packet.packetType))")
@@ -547,7 +591,7 @@ class TncConfigMenuViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 6
+        return 7
     }
     
     /*
