@@ -148,11 +148,11 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
 
         if supportedModemTypes.count > 0 {
             updateSupportedModemTypes()
-            DispatchQueue.main.async { self.modemTypePicker.reloadAllComponents() }
+            self.modemTypePicker.reloadAllComponents()
         }
         
         if passall != nil {
@@ -239,6 +239,7 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
                 print("modem type set to " + ModemConfigurationViewController.modemTypes[Int(modemType)].name)
                 if supportedModemTypes.count != 0 {
                     updateSupportedModemTypes()
+                    DispatchQueue.main.async { self.modemTypePicker.reloadAllComponents() }
                 }
             }
         }
