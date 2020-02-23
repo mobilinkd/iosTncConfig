@@ -22,6 +22,8 @@
 	<string>public.app-category.utilities</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This app requires Bluetooth access in order to configure the Mobilinkd TNC.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>This app requires access in order to configure the Mobilinkd TNC.</string>
 	<key>UILaunchStoryboardName</key>
@@ -29,9 +31,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
+	<array/>
 	<key>UIRequiresFullScreen</key>
 	<false/>
 	<key>UISupportedInterfaceOrientations</key>
