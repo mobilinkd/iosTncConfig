@@ -10,8 +10,8 @@ import UIKit
 
 class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var supportedModemTypes : [UInt8] = []
-    var pickerData: [String] = [String]()
+    var supportedModemTypes : [UInt8] = [1]
+    var pickerData: [String] = ["1200 baud AFSK"]
     var modemType = UInt8(1)
     var passall : Bool?
     
@@ -47,22 +47,8 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         tncModified()
     }
     
-    @IBAction func modemTypeChanged(_ sender: AnyObject) {
-        let index = sender.selectedRow(inComponent: 0)
-        let modemName = pickerData[index]
-        if let modem = ModemConfigurationViewController.modemTypes.first(
-                where: {$0.name == modemName}) {
-            modemType = modem.index
-            sendData(KissPacketEncoder.SetModemType(value: modemType))
-            tncModified()
-        } else {
-            
-        }
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        modemTypePicker.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,6 +69,21 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView,
+        didSelectRow row: Int,
+        inComponent component: Int)
+    {
+        let modemName = pickerData[row]
+        if let modem = ModemConfigurationViewController.modemTypes.first(
+                where: {$0.name == modemName}) {
+            modemType = modem.index
+            sendData(KissPacketEncoder.SetModemType(value: modemType))
+            tncModified()
+        } else {
+            print("invalid modem selection received")
+        }
     }
 
     override func viewDidLoad() {
@@ -138,7 +139,7 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         for (index, value) in supportedModemTypes.enumerated() {
             pickerData.append(
                 ModemConfigurationViewController.modemTypes[Int(value)].name)
-            if index == modemType {
+            if value == modemType {
                 offset = index
             }
         }
@@ -151,6 +152,7 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
 
         if supportedModemTypes.count > 0 {
             updateSupportedModemTypes()
+            DispatchQueue.main.async { self.modemTypePicker.reloadAllComponents() }
         }
         
         if passall != nil {
@@ -223,6 +225,7 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         if let packet = notification.object as? KissPacketDecoder {
             supportedModemTypes = [UInt8](packet.data)
             updateSupportedModemTypes()
+            DispatchQueue.main.async { self.modemTypePicker.reloadAllComponents() }
         }
     }
     
@@ -233,6 +236,7 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         if let packet = notification.object as? KissPacketDecoder {
             if let value = packet.asUInt8() {
                 modemType = value
+                print("modem type set to " + ModemConfigurationViewController.modemTypes[Int(modemType)].name)
                 if supportedModemTypes.count != 0 {
                     updateSupportedModemTypes()
                 }

@@ -47,7 +47,8 @@ class TncConfigMenuViewController : UITableViewController {
     
     @IBOutlet weak var tncNameLabel: UILabel!
     @IBOutlet weak var saveSettings: UIBarButtonItem!
-    
+    @IBOutlet weak var modemSettings: UIButton!
+
     static let tncInputLevelNotification = NSNotification.Name(rawValue: "tncInputLevel")
     static let tncBatteryLevelNotification = NSNotification.Name(rawValue: "tncBatteryLevel")
     static let tncOutputLevelNotification = NSNotification.Name(rawValue: "tncOutputLevel")
@@ -176,6 +177,10 @@ class TncConfigMenuViewController : UITableViewController {
         indicator.startAnimating()
         
         tncNameLabel.text = peripheral?.name!
+        modemType = 1
+        supportedModemTypes = []
+        passall = nil
+        modemSettings.isEnabled = false
         
         NotificationCenter.default.addObserver(
             self,
@@ -516,12 +521,13 @@ class TncConfigMenuViewController : UITableViewController {
                 break
             case .PASSALL:
                 if let value = packet.asUInt8() {
-                    passall = (value != 1);
+                    passall = (value != 0);
                 }
                 print("passall = \((passall!))")
                 NotificationCenter.default.post(
                     name: TncConfigMenuViewController.tncPassallNotification,
                     object: packet)
+                modemSettings.isEnabled = true
                 break
             case .EXTENDED_RANGE_1:
                 switch packet.getHardwareExtendedType() {
@@ -531,6 +537,7 @@ class TncConfigMenuViewController : UITableViewController {
                     NotificationCenter.default.post(
                         name: TncConfigMenuViewController.tncSupportedModemTypesNotification,
                         object: packet)
+                    modemSettings.isEnabled = true
                    break
                 case .GET_MODEM_TYPE:
                     if let value = packet.asUInt8() {
@@ -540,6 +547,7 @@ class TncConfigMenuViewController : UITableViewController {
                     NotificationCenter.default.post(
                         name: TncConfigMenuViewController.tncModemTypeNotification,
                         object: packet)
+                    modemSettings.isEnabled = true
                     break
                 default:
                     print("extended packet type: \((packet.packetType))")
