@@ -27,10 +27,10 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
     }
     
     static var modemTypes : [ModemType] = [
-        ModemType(indexValue: 0, nameValue: "UNKNOWN"),
-        ModemType(indexValue: 1, nameValue: "1200 baud AFSK"),
-        ModemType(indexValue: 2, nameValue: "300 baud AFSK"),
-        ModemType(indexValue: 3, nameValue: "9600 baud AFSK")
+        ModemType(indexValue: 0, nameValue: "UNKNOWN".localized),
+        ModemType(indexValue: 1, nameValue: "1200 baud AFSK".localized),
+        ModemType(indexValue: 2, nameValue: "300 baud AFSK".localized),
+        ModemType(indexValue: 3, nameValue: "9600 baud FSK".localized)
     ]
     
     @IBOutlet weak var modemTypePicker: UIPickerView!

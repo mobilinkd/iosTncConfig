@@ -259,8 +259,8 @@ class TncConfigMenuViewController : UITableViewController {
     @objc func didLoseConnection(notification: NSNotification)
     {
         let alert = UIAlertController(
-            title: "Lost BLE Connection",
-            message: "The connection to the TNC has been lost.  You will need to re-establish the connection.",
+            title: "LostBLETitle".localized,
+            message: "LostBLEMessage".localized,
             preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.navigationController?.popToRootViewController(animated: false)

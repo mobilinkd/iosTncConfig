@@ -5,56 +5,221 @@
 /* Class = "UILabel"; text = "Peripheral Label"; ObjectID = "0wd-Uc-DEI"; */
 "0wd-Uc-DEI.text" = "Peripheral Label";
 
+/* Class = "UILabel"; text = "Transmit Test Tone"; ObjectID = "2WL-gD-9Za"; */
+"2WL-gD-9Za.text" = "Transmit Test Tone";
+
+/* Class = "UILabel"; text = "0000-00-00 00:00:00"; ObjectID = "5rC-yG-hQC"; */
+"5rC-yG-hQC.text" = "0000-00-00 00:00:00";
+
+/* Class = "UIViewController"; title = "Audio Output Settings"; ObjectID = "5s5-Dz-Wd4"; */
+"5s5-Dz-Wd4.title" = "Audio Output Settings";
+
+/* Class = "UIButton"; normalTitle = "Audio Input Settings..."; ObjectID = "64U-lq-Pc0"; */
+"64U-lq-Pc0.normalTitle" = "Audio Input Settings...";
+
 /* Class = "UILabel"; text = "-3dB"; ObjectID = "6OV-ST-nHn"; */
 "6OV-ST-nHn.text" = "-3dB";
+
+/* Class = "UIViewController"; title = "Audio Input Settings"; ObjectID = "7BM-Sf-gun"; */
+"7BM-Sf-gun.title" = "Audio Input Settings";
+
+/* Class = "UILabel"; text = "Power Off with USB Power"; ObjectID = "7GE-eA-2oQ"; */
+"7GE-eA-2oQ.text" = "Power Off with USB Power";
 
 /* Class = "UILabel"; accessibilityLabel = "Not Connected"; ObjectID = "7Y7-Dq-kXK"; */
 "7Y7-Dq-kXK.accessibilityLabel" = "Not Connected";
 
-/* Class = "UILabel"; text = "0"; ObjectID = "IOf-8r-9U5"; */
-"IOf-8r-9U5.text" = "0";
+/* Class = "UILabel"; text = "Unknown"; ObjectID = "7Y7-Dq-kXK"; */
+"7Y7-Dq-kXK.text" = "Unknown";
 
-/* Class = "UILabel"; text = "0"; ObjectID = "JCd-Zx-XVq"; */
-"JCd-Zx-XVq.text" = "0";
+/* Class = "UILabel"; text = "Input Twist Level"; ObjectID = "9ln-1c-Yg4"; */
+"9ln-1c-Yg4.text" = "Input Twist Level";
 
-/* Class = "UITextView"; text = "Data goes here..."; ObjectID = "ObH-3Y-DNE"; */
-"ObH-3Y-DNE.text" = "Data goes here...";
+/* Class = "UISegmentedControl"; AHp-gS-zPK.segmentTitles[0] = "1200Hz"; ObjectID = "AHp-gS-zPK"; */
+"AHp-gS-zPK.segmentTitles[0]" = "1200Hz";
 
-/* Class = "UILabel"; accessibilityLabel = "Firmware Version Value"; ObjectID = "Pr2-3l-wGO"; */
-"Pr2-3l-wGO.accessibilityLabel" = "Firmware Version Value";
+/* Class = "UISegmentedControl"; AHp-gS-zPK.segmentTitles[1] = "2200Hz"; ObjectID = "AHp-gS-zPK"; */
+"AHp-gS-zPK.segmentTitles[1]" = "2200Hz";
+
+/* Class = "UISegmentedControl"; AHp-gS-zPK.segmentTitles[2] = "Both"; ObjectID = "AHp-gS-zPK"; */
+"AHp-gS-zPK.segmentTitles[2]" = "Both";
+
+/* Class = "UILabel"; text = "Open the squelch on the radio and adjust the volume level so the bar just intermittently touches the right side."; ObjectID = "DPc-Mk-ATz"; */
+"DPc-Mk-ATz.text" = "Open the squelch on the radio and adjust the volume level so the bar just intermittently touches the right side.";
+
+/* Class = "UIButton"; normalTitle = "KISS Parameters..."; ObjectID = "GzE-d0-zF3"; */
+"GzE-d0-zF3.normalTitle" = "KISS Parameters...";
+
+/* Class = "UIButton"; normalTitle = "Audio Output Settings..."; ObjectID = "HPG-Mq-9MU"; */
+"HPG-Mq-9MU.normalTitle" = "Audio Output Settings...";
+
+/* Class = "UILabel"; text = "255"; ObjectID = "HaP-iE-tXs"; */
+"HaP-iE-tXs.text" = "255";
+
+/* Class = "UILabel"; text = "Select the modem type.  1200 baud AFSK is normal for APRS."; ObjectID = "HnH-M1-gCj"; */
+"HnH-M1-gCj.text" = "Select the modem type.  1200 baud AFSK is normal for APRS.";
+
+/* Class = "UILabel"; text = "00:00:00:00:00:00"; ObjectID = "HzL-ys-SbA"; */
+"HzL-ys-SbA.text" = "00:00:00:00:00:00";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "IOf-8r-9U5"; */
+"IOf-8r-9U5.text" = "5";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "IiK-ex-Ju2"; */
+"IiK-ex-Ju2.text" = "0";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "JCd-Zx-XVq"; */
+"JCd-Zx-XVq.text" = "100";
+
+/* Class = "UILabel"; text = "MAC Address"; ObjectID = "KRY-Nw-3t1"; */
+"KRY-Nw-3t1.text" = "MAC Address";
+
+/* Class = "UIButton"; normalTitle = "Transmit"; ObjectID = "L8f-qn-AIB"; */
+"L8f-qn-AIB.normalTitle" = "Transmit";
+
+/* Class = "UILabel"; text = "Battery Level"; ObjectID = "LT9-xj-01a"; */
+"LT9-xj-01a.text" = "Battery Level";
+
+/* Class = "UILabel"; text = "Time Slot"; ObjectID = "Mk4-kU-inx"; */
+"Mk4-kU-inx.text" = "Time Slot";
+
+/* Class = "UIButton"; normalTitle = "Auto-Adjust Levels"; ObjectID = "NDW-17-OoP"; */
+"NDW-17-OoP.normalTitle" = "Auto-Adjust Levels";
+
+/* Class = "UINavigationItem"; title = "TNC Information"; ObjectID = "OIM-jT-HwO"; */
+"OIM-jT-HwO.title" = "TNC Information";
+
+/* Class = "UILabel"; text = "Hardware Version"; ObjectID = "P7g-MN-jTH"; */
+"P7g-MN-jTH.text" = "Hardware Version";
+
+/* Class = "UILabel"; text = "Audio Input Level"; ObjectID = "T3T-Yb-a2A"; */
+"T3T-Yb-a2A.text" = "Audio Input Level";
+
+/* Class = "UILabel"; text = "PTT Style"; ObjectID = "TRt-Vk-pnV"; */
+"TRt-Vk-pnV.text" = "PTT Style";
+
+/* Class = "UILabel"; text = "Audio Output Gain"; ObjectID = "VMQ-Xq-OVP"; */
+"VMQ-Xq-OVP.text" = "Audio Output Gain";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "VyB-RR-acK"; */
+"VyB-RR-acK.text" = "100";
+
+/* Class = "UIButton"; normalTitle = "TNC Information..."; ObjectID = "WH5-M7-Z8t"; */
+"WH5-M7-Z8t.normalTitle" = "TNC Information...";
+
+/* Class = "UIButton"; normalTitle = "Power Settings..."; ObjectID = "XLJ-8x-3SZ"; */
+"XLJ-8x-3SZ.normalTitle" = "Power Settings...";
+
+/* Class = "UILabel"; text = "Date/Time"; ObjectID = "YrF-Wn-xSx"; */
+"YrF-Wn-xSx.text" = "Date/Time";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "Zpc-YI-2Vg"; */
 "Zpc-YI-2Vg.text" = "0";
 
-/* Class = "UILabel"; text = "On / Off"; ObjectID = "acc-1I-fGN"; */
-"acc-1I-fGN.text" = "On / Off";
+/* Class = "UIViewController"; title = "TNC Information"; ObjectID = "a2w-dy-xpM"; */
+"a2w-dy-xpM.title" = "TNC Information";
 
-/* Class = "UIBarButtonItem"; title = "Disconnect"; ObjectID = "bh9-F4-hZD"; */
-"bh9-F4-hZD.title" = "Disconnect";
+/* Class = "UITextField"; placeholder = "30"; ObjectID = "a3H-cg-8n0"; */
+"a3H-cg-8n0.placeholder" = "30";
 
-/* Class = "UITableViewController"; title = "TNCConfigMenuController"; ObjectID = "dSc-BU-aIp"; */
-"dSc-BU-aIp.title" = "TNCConfigMenuController";
+/* Class = "UIViewController"; title = "Modem Configuration"; ObjectID = "aVK-MO-Ulq"; */
+"aVK-MO-Ulq.title" = "Modem Configuration";
 
-/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "jHl-s6-Yg8"; */
-"jHl-s6-Yg8.normalTitle" = "Send";
+/* Class = "UIButton"; normalTitle = "Modem Configuration..."; ObjectID = "aoV-5y-269"; */
+"aoV-5y-269.normalTitle" = "Modem Configuration...";
+
+/* Class = "UILabel"; text = "Unknown"; ObjectID = "c6G-eP-CUX"; */
+"c6G-eP-CUX.text" = "Unknown";
+
+/* Class = "UILabel"; text = "Unknown"; ObjectID = "cXT-3M-3UZ"; */
+"cXT-3M-3UZ.text" = "Unknown";
+
+/* Class = "UITableViewController"; title = "Configure"; ObjectID = "dSc-BU-aIp"; */
+"dSc-BU-aIp.title" = "Configure";
+
+/* Class = "UIViewController"; title = "Power Settings"; ObjectID = "edI-pz-ohh"; */
+"edI-pz-ohh.title" = "Power Settings";
+
+/* Class = "UIViewController"; title = "KISS Parameters"; ObjectID = "fcE-df-epi"; */
+"fcE-df-epi.title" = "KISS Parameters";
+
+/* Class = "UILabel"; text = "Power On with USB Power"; ObjectID = "ff2-yA-8Ir"; */
+"ff2-yA-8Ir.text" = "Power On with USB Power";
+
+/* Class = "UILabel"; text = "50"; ObjectID = "iaf-LT-BWe"; */
+"iaf-LT-BWe.text" = "50";
+
+/* Class = "UILabel"; text = "Audio Output Twist"; ObjectID = "jTE-11-eIF"; */
+"jTE-11-eIF.text" = "Audio Output Twist";
+
+/* Class = "UILabel"; text = "TX Delay"; ObjectID = "kSb-tc-srp"; */
+"kSb-tc-srp.text" = "TX Delay";
 
 /* Class = "UILabel"; text = "9dB"; ObjectID = "knh-VM-JDt"; */
 "knh-VM-JDt.text" = "9dB";
 
-/* Class = "UILabel"; accessibilityHint = "Bluetooth network address identifier"; ObjectID = "lCX-of-rFD"; */
-"lCX-of-rFD.accessibilityHint" = "Bluetooth network address identifier";
+/* Class = "UILabel"; accessibilityHint = "Bluetooth device name"; ObjectID = "lCX-of-rFD"; */
+"lCX-of-rFD.accessibilityHint" = "Bluetooth device name";
 
-/* Class = "UILabel"; accessibilityLabel = "MAC Address"; ObjectID = "lCX-of-rFD"; */
-"lCX-of-rFD.accessibilityLabel" = "MAC Address";
+/* Class = "UILabel"; accessibilityLabel = "Device ID:"; ObjectID = "lCX-of-rFD"; */
+"lCX-of-rFD.accessibilityLabel" = "Device ID:";
+
+/* Class = "UILabel"; text = "Device ID:"; ObjectID = "lCX-of-rFD"; */
+"lCX-of-rFD.text" = "Device ID:";
+
+/* Class = "UILabel"; text = "Serial Number"; ObjectID = "m5O-SJ-Lbx"; */
+"m5O-SJ-Lbx.text" = "Serial Number";
+
+/* Class = "UISegmentedControl"; mtJ-L5-mpb.segmentTitles[0] = "Simplex"; ObjectID = "mtJ-L5-mpb"; */
+"mtJ-L5-mpb.segmentTitles[0]" = "Simplex";
+
+/* Class = "UISegmentedControl"; mtJ-L5-mpb.segmentTitles[1] = "Multiplex"; ObjectID = "mtJ-L5-mpb"; */
+"mtJ-L5-mpb.segmentTitles[1]" = "Multiplex";
 
 /* Class = "UILabel"; text = "6dB"; ObjectID = "nE4-xN-GZa"; */
 "nE4-xN-GZa.text" = "6dB";
 
-/* Class = "UILabel"; accessibilityLabel = "Firmware Version"; ObjectID = "ttQ-MB-LKp"; */
-"ttQ-MB-LKp.accessibilityLabel" = "Firmware Version";
+/* Class = "UILabel"; text = "Input Gain Level"; ObjectID = "nU5-wQ-K2a"; */
+"nU5-wQ-K2a.text" = "Input Gain Level";
+
+/* Class = "UILabel"; text = "Full Duplex"; ObjectID = "omT-Vb-vXW"; */
+"omT-Vb-vXW.text" = "Full Duplex";
+
+/* Class = "UILabel"; text = "Modem Type"; ObjectID = "os2-bB-y2S"; */
+"os2-bB-y2S.text" = "Modem Type";
+
+/* Class = "UILabel"; text = "4000mV"; ObjectID = "qTO-Xa-aER"; */
+"qTO-Xa-aER.text" = "4000mV";
+
+/* Class = "UILabel"; text = "Passall"; ObjectID = "qWe-gx-wbm"; */
+"qWe-gx-wbm.text" = "Passall";
+
+/* Class = "UILabel"; text = "48"; ObjectID = "s4l-GX-6aE"; */
+"s4l-GX-6aE.text" = "48";
+
+/* Class = "UILabel"; text = "Persistence"; ObjectID = "sMI-pd-ahx"; */
+"sMI-pd-ahx.text" = "Persistence";
+
+/* Class = "UILabel"; text = "Firmware Version"; ObjectID = "uuT-so-XIa"; */
+"uuT-so-XIa.text" = "Firmware Version";
 
 /* Class = "UINavigationItem"; title = "Mobilinkd TNC Config"; ObjectID = "w25-yy-fKD"; */
 "w25-yy-fKD.title" = "Mobilinkd TNC Config";
 
-/* Class = "UINavigationItem"; title = "TNC Configuration Menu"; ObjectID = "zqY-0j-dLU"; */
-"zqY-0j-dLU.title" = "TNC Configuration Menu";
+/* Class = "UITextField"; placeholder = "10"; ObjectID = "xGA-Ta-Yuy"; */
+"xGA-Ta-Yuy.placeholder" = "10";
+
+/* Class = "UITextField"; placeholder = "63"; ObjectID = "y0A-zl-Zf6"; */
+"y0A-zl-Zf6.placeholder" = "63";
+
+/* Class = "UILabel"; text = "Unknown"; ObjectID = "yqW-Rg-NY6"; */
+"yqW-Rg-NY6.text" = "Unknown";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "yqk-ky-8ld"; */
+"yqk-ky-8ld.text" = "0";
+
+/* Class = "UILabel"; text = "Pass packets with an invalid CRC.  This is normally off."; ObjectID = "zAG-Q4-7U3"; */
+"zAG-Q4-7U3.text" = "Pass packets with an invalid CRC.  This is normally off.";
+
+/* Class = "UINavigationItem"; title = "Configure"; ObjectID = "zqY-0j-dLU"; */
+"zqY-0j-dLU.title" = "Configure";

@@ -13,6 +13,7 @@
 		D44EE5DB21D9CA6200D0FC33 /* SlipProtocolEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */; };
 		D44EE5DD21DF060700D0FC33 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D44EE5DC21DF060700D0FC33 /* logo.png */; };
 		D480B1262402D954008FDC62 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5B24DE71DEE393B00D33B5A /* Info.plist */; };
+		D480B12824033B8E008FDC62 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D480B12724033B8E008FDC62 /* Localizable.strings */; };
 		D48E9B2A21D8636C0081E99D /* TncConfigMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2921D8636C0081E99D /* TncConfigMenuViewController.swift */; };
 		D48E9B2C21D868C40081E99D /* PowerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2B21D868C40081E99D /* PowerSettingsViewController.swift */; };
 		D48E9B2E21D8693F0081E99D /* KissParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48E9B2D21D8693F0081E99D /* KissParametersViewController.swift */; };
@@ -34,12 +35,13 @@
 		D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KissPacket.swift; sourceTree = "<group>"; };
 		D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipProtocolEncoder.swift; sourceTree = "<group>"; };
 		D44EE5DC21DF060700D0FC33 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		D480B12724033B8E008FDC62 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		D480B12A24034ECA008FDC62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D48E9B2921D8636C0081E99D /* TncConfigMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TncConfigMenuViewController.swift; sourceTree = "<group>"; };
 		D48E9B2B21D868C40081E99D /* PowerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSettingsViewController.swift; sourceTree = "<group>"; };
 		D48E9B2D21D8693F0081E99D /* KissParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KissParametersViewController.swift; sourceTree = "<group>"; };
 		D48E9B2F21D869890081E99D /* AudioInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInputViewController.swift; sourceTree = "<group>"; };
 		D48E9B3121D869DB0081E99D /* AudioOutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutputViewController.swift; sourceTree = "<group>"; };
-		D4EA51D621D9332100B1A8C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D4EA51D721D9400A00B1A8C5 /* TncInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TncInformationViewController.swift; sourceTree = "<group>"; };
 		D50657231DF2F4C8002B7557 /* UUIDKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUIDKey.swift; sourceTree = "<group>"; };
 		D5B24DD81DEE393B00D33B5A /* Mobilinkd TNC Config.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobilinkd TNC Config.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 				D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */,
 				D44EE5DA21D9CA6200D0FC33 /* SlipProtocolEncoder.swift */,
 				D42E9D7523FCD3B4002268E3 /* ModemConfigurationViewController.swift */,
+				D480B12724033B8E008FDC62 /* Localizable.strings */,
 			);
 			path = "Mobilinkd TNC Config";
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B24DE61DEE393B00D33B5A /* LaunchScreen.storyboard in Resources */,
+				D480B12824033B8E008FDC62 /* Localizable.strings in Resources */,
 				D5B24DE31DEE393B00D33B5A /* Assets.xcassets in Resources */,
 				D5B24DE11DEE393B00D33B5A /* Main.storyboard in Resources */,
 				D480B1262402D954008FDC62 /* Info.plist in Resources */,
@@ -205,7 +209,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D5B24DE01DEE393B00D33B5A /* Base */,
-				D4EA51D621D9332100B1A8C5 /* en */,
+				D480B12A24034ECA008FDC62 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -378,7 +382,7 @@
 				D5B24DE91DEE393B00D33B5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		D5B24DEA1DEE393B00D33B5A /* Build configuration list for PBXNativeTarget "Mobilinkd TNC Config" */ = {
 			isa = XCConfigurationList;
@@ -387,7 +391,7 @@
 				D5B24DEC1DEE393B00D33B5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -174,7 +174,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Device ID:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lCX-of-rFD">
                                                     <rect key="frame" x="20" y="11.999999999999998" width="81" height="20.333333333333329"/>
-                                                    <accessibility key="accessibilityConfiguration" hint="Bluetooth network address identifier" identifier="macAddressTextLabel" label="MAC Address">
+                                                    <accessibility key="accessibilityConfiguration" hint="Bluetooth device name" identifier="macAddressTextLabel" label="Device ID:">
                                                         <accessibilityTraits key="traits" staticText="YES"/>
                                                     </accessibility>
                                                     <constraints>

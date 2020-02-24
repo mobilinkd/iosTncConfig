@@ -26,6 +26,12 @@ extension Data {
     }
 }
 
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+    }
+}
+
 func disconnectBle() {
     // This causes the demodulator to start back up if needed.
     sendData(KissPacketEncoder.GetBatteryLevel())
@@ -478,9 +484,9 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
             cell.peripheralLabel.text = peripheral.name
         }
         if (Int(truncating: RSSI) == 100) {
-            cell.rssiLabel.text = "Last Connected Device"
+            cell.rssiLabel.text = "Last Connected Device".localized
         } else {
-            cell.rssiLabel.text = "RSSI: \(RSSI)"
+            cell.rssiLabel.text = "RSSI:".localized + " \(RSSI)"
         }
         
         return cell
@@ -489,22 +495,20 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let device = peripherals[indexPath.row]
         let alert = UIAlertController(
-            title: "Connect To TNC",
-            message: "Connecting to a TNC with an active connection can " +
-                "prevent it from receiving or transmitting packets.\n\n" +
-                "Are you sure you wish to continue?",
+            title: "ConnectAlertTitle".localized,
+            message: "ConnectAlertMessage".localized,
             preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Connect".localized, style: .default, handler: { action in
             self.connectToDevice(device)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
     func unathorized() {
         print("Bluetooth not authorized - this app must be authorized for Bluetooth")
         
-        let alertVC = UIAlertController(title: "Bluetooth is not authorized", message: "This app must be allowed to use Bluetooth in order for it to function properly", preferredStyle: UIAlertController.Style.alert)
+        let alertVC = UIAlertController(title: "BTAuthTitle".localized, message: "BTAuthMessage".localized, preferredStyle: UIAlertController.Style.alert)
         let action = UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) -> Void in
             self.dismiss(animated: true, completion: nil)
         })
@@ -515,7 +519,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     func poweredOff() {
         print("Bluetooth is not powered on - Bluetooth must be powered on to use this app")
         
-        let alertVC = UIAlertController(title: "Bluetooth is not enabled", message: "Turn on Bluetooth in order to use this app", preferredStyle: UIAlertController.Style.alert)
+        let alertVC = UIAlertController(title: "BTEnableTitle".localized, message: "BTEnableMessage".localized, preferredStyle: UIAlertController.Style.alert)
         let action = UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) -> Void in
             self.dismiss(animated: true, completion: nil)
         })

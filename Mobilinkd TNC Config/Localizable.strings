@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  Mobilinkd TNC Config
+
+  Created by Rob Riggs on 2/23/20.
+  Copyright © 2020 Mobilinkd LLC. All rights reserved.
+*/
+
+"Last Connected Device" = "Last Connected Device";
+"RSSI:" = "RSSI:";
+
+"ConnectAlertTitle" = "Connect To TNC";
+"ConnectAlertMessage" = "Connecting to a TNC with an active connection can prevent it from receiving or transmitting packets.\n\nAre you sure you wish to continue?";
+
+"Connect" = "Connect";
+"Cancel" = "Cancel";
+
+"BTAuthTitle" = "Bluetooth is not authorized";
+"BTAuthMessage" = "This app must be allowed to use Bluetooth in order for it to function properly.";
+
+"BTEnableTitle" = "Bluetooth is not enabled";
+"BTEnableMessage" = "Turn on Bluetooth in order to use this app.";
+
+"LostBLETitle" = "Lost BLE Connection";
+"LostBLEMessage" = "The connection to the TNC has been lost.  You will need to re-establish the connection.";
+
+// Modem Types
+"UNKNOWN" = "UNKNOWN";
+"1200 baud AFSK" = "1200 baud AFSK";
+"300 baud AFSK" = "300 baud AFSK";
+"9600 baud FSK" = "9600 baud FSK";
