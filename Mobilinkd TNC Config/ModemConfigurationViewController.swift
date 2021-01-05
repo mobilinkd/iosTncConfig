@@ -137,6 +137,9 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         var offset : Int?
         
         for (index, value) in supportedModemTypes.enumerated() {
+            if value > ModemConfigurationViewController.modemTypes.count {
+                continue
+            }
             pickerData.append(
                 ModemConfigurationViewController.modemTypes[Int(value)].name)
             if value == modemType {
@@ -235,11 +238,13 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         
         if let packet = notification.object as? KissPacketDecoder {
             if let value = packet.asUInt8() {
-                modemType = value
-                print("modem type set to " + ModemConfigurationViewController.modemTypes[Int(modemType)].name)
-                if supportedModemTypes.count != 0 {
-                    updateSupportedModemTypes()
-                    DispatchQueue.main.async { self.modemTypePicker.reloadAllComponents() }
+                if ModemConfigurationViewController.modemTypes.count < value {
+                    modemType = value
+                    print("modem type set to " + ModemConfigurationViewController.modemTypes[Int(value)].name)
+                    if supportedModemTypes.count != 0 {
+                        updateSupportedModemTypes()
+                        DispatchQueue.main.async { self.modemTypePicker.reloadAllComponents() }
+                    }
                 }
             }
         }
