@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GC0-aD-kcd">
-    <device id="retina3_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GC0-aD-kcd">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,15 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Version 1.2.0 (11)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="034-Fi-9hr" userLabel="APP_VERSION">
+                                <rect key="frame" x="96" y="460" width="128" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="MnC-8Q-FDe">
                                 <rect key="frame" x="20" y="20" width="280" height="440"/>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="3dj-D6-A7V"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MnC-8Q-FDe" firstAttribute="top" secondItem="5g9-sG-V6G" secondAttribute="top" constant="20" id="9Vl-6e-UDT"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MnC-8Q-FDe" secondAttribute="bottom" constant="20" id="BMc-ca-d7b"/>
+                            <constraint firstItem="034-Fi-9hr" firstAttribute="top" secondItem="MnC-8Q-FDe" secondAttribute="bottom" id="HXc-3E-Xst"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MnC-8Q-FDe" secondAttribute="trailing" constant="20" id="Ic7-hE-Ujx"/>
+                            <constraint firstItem="034-Fi-9hr" firstAttribute="centerX" secondItem="5g9-sG-V6G" secondAttribute="centerX" id="PTM-MI-cQV"/>
                             <constraint firstAttribute="bottom" secondItem="MnC-8Q-FDe" secondAttribute="bottom" constant="20" id="UIW-iq-oIl"/>
                             <constraint firstItem="MnC-8Q-FDe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5g9-sG-V6G" secondAttribute="top" constant="20" id="Y4g-IW-p8B"/>
                             <constraint firstItem="MnC-8Q-FDe" firstAttribute="centerX" secondItem="3dj-D6-A7V" secondAttribute="centerX" id="kga-h7-tuD"/>
@@ -35,7 +43,6 @@
                             <constraint firstItem="MnC-8Q-FDe" firstAttribute="centerY" secondItem="5g9-sG-V6G" secondAttribute="centerY" id="yTN-7Z-8cW"/>
                             <constraint firstItem="MnC-8Q-FDe" firstAttribute="leading" secondItem="5g9-sG-V6G" secondAttribute="leadingMargin" constant="20" id="z65-K9-ftY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="3dj-D6-A7V"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="rsy-Em-xJ6"/>
@@ -73,5 +80,8 @@
     </scenes>
     <resources>
         <image name="logo.png" width="1024" height="1024"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -87,6 +87,8 @@ class TncConfigMenuViewController : UITableViewController {
     static let tncSupportedModemTypesNotification = NSNotification.Name(rawValue: "tncSupportedModemTYpes")
     static let tncModemTypeNotification = NSNotification.Name(rawValue: "tncModemTYpe")
     static let tncPassallNotification = NSNotification.Name(rawValue: "tncPassall")
+    static let tncRxReversePolarityNotification = NSNotification.Name(rawValue: "tncRxReversePolarity")
+    static let tncTxReversePolarityNotification = NSNotification.Name(rawValue: "tncTxReversePolarity")
 
     var mainViewController : BLECentralViewController?
     var peripheralManager: CBPeripheralManager?
@@ -124,6 +126,8 @@ class TncConfigMenuViewController : UITableViewController {
     var supportedModemTypes : [UInt8] = []
     var modemType = UInt8(1)
     var passall : Bool?
+    var rxReversePolarity : Bool?
+    var txReversePolarity : Bool?
 
     let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
 
@@ -160,6 +164,8 @@ class TncConfigMenuViewController : UITableViewController {
             audioOutput.pttStyle = pttStyle
         } else if let modemConfig = segue.destination as? ModemConfigurationViewController {
             modemConfig.passall = passall
+            modemConfig.rxReversePolarity = rxReversePolarity
+            modemConfig.txReversePolarity = txReversePolarity
             modemConfig.modemType = modemType
             modemConfig.supportedModemTypes = supportedModemTypes
         }
@@ -526,6 +532,26 @@ class TncConfigMenuViewController : UITableViewController {
                 print("passall = \((passall!))")
                 NotificationCenter.default.post(
                     name: TncConfigMenuViewController.tncPassallNotification,
+                    object: packet)
+                modemSettings.isEnabled = true
+                break
+            case .RX_REVERSE_POLARITY:
+                if let value = packet.asUInt8() {
+                    rxReversePolarity = (value != 0);
+                }
+                print("rxReversePolarity = \((rxReversePolarity!))")
+                NotificationCenter.default.post(
+                    name: TncConfigMenuViewController.tncRxReversePolarityNotification,
+                    object: packet)
+                modemSettings.isEnabled = true
+                break
+            case .TX_REVERSE_POLARITY:
+                if let value = packet.asUInt8() {
+                    txReversePolarity = (value != 0);
+                }
+                print("txReversePolarity = \((passall!))")
+                NotificationCenter.default.post(
+                    name: TncConfigMenuViewController.tncTxReversePolarityNotification,
                     object: packet)
                 modemSettings.isEnabled = true
                 break

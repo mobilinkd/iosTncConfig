@@ -14,6 +14,8 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
     var pickerData: [String] = ["1200 baud AFSK"]
     var modemType = UInt8(1)
     var passall : Bool?
+    var rxReversePolarity : Bool?
+    var txReversePolarity : Bool?
     
     class ModemType {
         var index : UInt8
@@ -30,7 +32,9 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         ModemType(indexValue: 0, nameValue: "UNKNOWN".localized),
         ModemType(indexValue: 1, nameValue: "1200 baud AFSK".localized),
         ModemType(indexValue: 2, nameValue: "300 baud AFSK".localized),
-        ModemType(indexValue: 3, nameValue: "9600 baud FSK".localized)
+        ModemType(indexValue: 3, nameValue: "9600 baud FSK".localized),
+        ModemType(indexValue: 4, nameValue: "PSK31".localized),
+        ModemType(indexValue: 5, nameValue: "M17 4-FSK".localized)
     ]
     
     @IBOutlet weak var modemTypePicker: UIPickerView!
@@ -47,6 +51,26 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         tncModified()
     }
     
+    @IBOutlet weak var rxReversePolaritySwitch: UISwitch!
+    @IBOutlet weak var rxReversePolarityLabel: UILabel!
+    @IBOutlet weak var rxReversePolarityHint: UILabel!
+    
+    @IBAction func rxReversePolaritySwitchChanged(_ sender: UISwitch) {
+        rxReversePolarity = sender.isOn
+        sendData(KissPacketEncoder.SetRxReversePolarity(value: sender.isOn))
+        tncModified()
+    }
+    
+    @IBOutlet weak var txReversePolaritySwitch: UISwitch!
+    @IBOutlet weak var txReversePolarityLabel: UILabel!
+    @IBOutlet weak var txReversePolarityHint: UILabel!
+    
+    @IBAction func txReversePolaritySwitchChanged(_ sender: UISwitch) {
+        txReversePolarity = sender.isOn
+        sendData(KissPacketEncoder.SetTxReversePolarity(value: sender.isOn))
+        tncModified()
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -122,6 +146,18 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
             name: TncConfigMenuViewController.tncPassallNotification,
             object: nil)
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.rxReversePolarityNotification),
+            name: TncConfigMenuViewController.tncRxReversePolarityNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.txReversePolarityNotification),
+            name: TncConfigMenuViewController.tncTxReversePolarityNotification,
+            object: nil)
+
         print("all modem notifications subscribed")
         
         NotificationCenter.default.addObserver(
@@ -163,6 +199,28 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
             passallSwitch.isEnabled = true
         } else {
             passallSwitch.isEnabled = false
+        }
+
+        if rxReversePolarity != nil {
+            rxReversePolaritySwitch.isOn = rxReversePolarity!
+            rxReversePolaritySwitch.isEnabled = true
+            rxReversePolarityLabel.isEnabled = true
+            rxReversePolarityHint.isEnabled = true
+        } else {
+            rxReversePolaritySwitch.isEnabled = false
+            rxReversePolarityLabel.isEnabled = false
+            rxReversePolarityHint.isEnabled = false
+        }
+
+        if txReversePolarity != nil {
+            txReversePolaritySwitch.isOn = txReversePolarity!
+            txReversePolaritySwitch.isEnabled = true
+            txReversePolarityLabel.isEnabled = true
+            txReversePolarityHint.isEnabled = true
+        } else {
+            txReversePolaritySwitch.isEnabled = false
+            txReversePolarityLabel.isEnabled = false
+            txReversePolarityHint.isEnabled = false
         }
     }
     
@@ -257,6 +315,28 @@ class ModemConfigurationViewController: UIViewController, UIPickerViewDelegate, 
         if let packet = notification.object as? KissPacketDecoder {
             if let value = packet.asUInt8() {
                 passallSwitch.isOn = (value == 1)
+            }
+        }
+    }
+    
+    @objc public func rxReversePolarityNotification(notification: NSNotification)
+    {
+        print("rxReversePolarityNotification")
+        
+        if let packet = notification.object as? KissPacketDecoder {
+            if let value = packet.asUInt8() {
+                rxReversePolaritySwitch.isOn = (value == 1)
+            }
+        }
+    }
+    
+    @objc public func txReversePolarityNotification(notification: NSNotification)
+    {
+        print("txReversePolarityNotification")
+        
+        if let packet = notification.object as? KissPacketDecoder {
+            if let value = packet.asUInt8() {
+                txReversePolaritySwitch.isOn = (value == 1)
             }
         }
     }

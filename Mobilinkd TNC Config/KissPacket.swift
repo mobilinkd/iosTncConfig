@@ -53,6 +53,8 @@ class KissPacketDecoder
         
         case PTT_CHANNEL = 80
         case PASSALL = 82
+        case RX_REVERSE_POLARITY = 84 // API 2.2
+        case TX_REVERSE_POLARITY = 86 // API 2.2
 
         case MIN_OUTPUT_TWIST = 119   // API 2.0
         case MAX_OUTPUT_TWIST = 120   // API 2.0
@@ -199,7 +201,9 @@ class KissPacketEncoder {
         
         case SET_PTT_CHANNEL = 79
         case SET_PASSALL = 81
-        
+        case SET_RX_REVERSE_POLARITY = 83   // API 2.2
+        case SET_TX_REVERSE_POLARITY = 85   // API 2.2
+
         case MIN_INPUT_TWIST = 121    // API 2.0
         case MAX_INPUT_TWIST = 122    // API 2.0
         case API_VERSION = 123        // API 2.0
@@ -295,6 +299,16 @@ class KissPacketEncoder {
     static func SetPassall(value: Bool) -> Data {
         return SlipProtocolEncoder.encode(
             value: KissPacketEncoder(hardwareType: .SET_PASSALL, data: UInt8(value ? 1 : 0)).encode())
+    }
+    
+    static func SetRxReversePolarity(value: Bool) -> Data {
+        return SlipProtocolEncoder.encode(
+            value: KissPacketEncoder(hardwareType: .SET_RX_REVERSE_POLARITY, data: UInt8(value ? 1 : 0)).encode())
+    }
+    
+    static func SetTxReversePolarity(value: Bool) -> Data {
+        return SlipProtocolEncoder.encode(
+            value: KissPacketEncoder(hardwareType: .SET_TX_REVERSE_POLARITY, data: UInt8(value ? 1 : 0)).encode())
     }
     
     static func SetModemType(value: UInt8) -> Data {
@@ -437,4 +451,3 @@ class KissPacketEncoder {
             value: KissPacketEncoder(packetType: .Duplex, data: UInt8(value ? 1 : 0)).encode())
     }
 }
-
