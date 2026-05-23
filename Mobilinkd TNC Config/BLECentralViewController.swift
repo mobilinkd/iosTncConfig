@@ -47,10 +47,9 @@ func disconnectBle() {
  * latency but it may introduce some ordering of operations issues.
  */
 func sendDataNow(_ data: Data) {
-    if blePeripheral != nil && txCharacteristic != nil {
-        blePeripheral!.writeValue(data, for: txCharacteristic!,
-            type: CBCharacteristicWriteType.withoutResponse)
-    }
+    guard let peripheral = blePeripheral, let characteristic = txCharacteristic else { return }
+    peripheral.writeValue(data, for: characteristic,
+        type: CBCharacteristicWriteType.withoutResponse)
 }
 
 /*
@@ -193,12 +192,14 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
      (didUpdateNotificationStateForCharacteristic will cancel the connection if a subscription is involved)
      */
     func disconnectFromDevice () {
-        if blePeripheral != nil {
-            // Disable notification first.
-            blePeripheral!.setNotifyValue(false, for: rxCharacteristic!)
-            // Then request device disconnection.
-            centralManager?.cancelPeripheralConnection(blePeripheral!)
+        guard let peripheral = blePeripheral, let rx = rxCharacteristic else {
+            // No connected device to disconnect
+            return
         }
+        // Disable notification first.
+        peripheral.setNotifyValue(false, for: rx)
+        // Then request device disconnection.
+        centralManager?.cancelPeripheralConnection(peripheral)
     }
     
     func restoreCentralManager() {
@@ -271,9 +272,10 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     
     @objc func bleSend(notification: NSNotification) {
         print("bleSend")
+        guard let peripheral = blePeripheral, let characteristic = txCharacteristic else { return }
         if let data = notification.object as? Data {
             print("sending: \((data.hexEncodedString() as String))")
-            blePeripheral!.writeValue(data, for: txCharacteristic!,
+            peripheral.writeValue(data, for: characteristic,
                 type: CBCharacteristicWriteType.withoutResponse)
         }
     }
@@ -292,11 +294,13 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     }
     
     @objc func disconnectAllConnection() {
-        if blePeripheral != nil {
-            print("disconnectAllConnection")
-            centralManager.cancelPeripheralConnection(blePeripheral!)
-            blePeripheral = nil
+        guard let peripheral = blePeripheral else {
+            print("disconnectAllConnection: no peripheral")
+            return
         }
+        print("disconnectAllConnection")
+        centralManager.cancelPeripheralConnection(peripheral)
+        blePeripheral = nil
     }
     
     /*
@@ -347,7 +351,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
             if characteristic.uuid.isEqual(BLE_Characteristic_uuid_Rx)  {
                 rxCharacteristic = characteristic
                 
-                peripheral.setNotifyValue(true, for: rxCharacteristic!)
+                guard let rx = rxCharacteristic else { continue }
+                peripheral.setNotifyValue(true, for: rx)
                 print("Rx Characteristic: \(characteristic.uuid)")
             }
             if characteristic.uuid.isEqual(BLE_Characteristic_uuid_Tx){

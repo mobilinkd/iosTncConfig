@@ -120,9 +120,10 @@ class UartModuleViewController: UIViewController, CBPeripheralManagerDelegate, U
     }
     
     func writeCharacteristic(val: Int8){
+        guard let peripheral = blePeripheral, let characteristic = txCharacteristic else { return }
         var val = val
         let ns = NSData(bytes: &val, length: MemoryLayout<Int8>.size)
-        blePeripheral!.writeValue(ns as Data, for: txCharacteristic!, type: CBCharacteristicWriteType.withResponse)
+        peripheral.writeValue(ns as Data, for: characteristic, type: CBCharacteristicWriteType.withResponse)
     }
     
     
