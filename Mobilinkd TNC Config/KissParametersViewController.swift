@@ -85,7 +85,7 @@ class KissParametersViewController: UIViewController {
             self.timeSlotStepper.value = Double(value!)
             NotificationCenter.default.post(
                 name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.SetTxDelay(value: value!))
+                object: KissPacketEncoder.SetSlotTime(value: value!))
             NotificationCenter.default.post(
                 name: TncConfigMenuViewController.tncModifiedNotification,
                 object: nil)
