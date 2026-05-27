@@ -19,7 +19,7 @@ class KissParametersViewController: UIViewController {
     @IBOutlet weak var duplexSwitch: UISwitch!
 
     @IBAction func txDelayEdited(_ sender: UITextField) {
-        let value = UInt8(sender.text!)
+        let value = UInt8(sender.text ?? "")
         if value != nil {
             txDelay = value!
             self.txDelayStepper.value = Double(value!)
@@ -49,7 +49,7 @@ class KissParametersViewController: UIViewController {
     }
     
     @IBAction func persistenceEdited(_ sender: UITextField) {
-        let value = UInt8(sender.text!)
+        let value = UInt8(sender.text ?? "")
         if value != nil {
             persistence = value!
             self.persistenceStepper.value = Double(value!)
@@ -79,7 +79,7 @@ class KissParametersViewController: UIViewController {
     }
     
     @IBAction func timeSlotEdited(_ sender: UITextField) {
-        let value = UInt8(sender.text!)
+        let value = UInt8(sender.text ?? "")
         if value != nil {
             timeSlot = value!
             self.timeSlotStepper.value = Double(value!)
