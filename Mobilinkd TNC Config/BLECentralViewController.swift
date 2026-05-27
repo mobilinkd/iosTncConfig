@@ -76,7 +76,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     static let bleDisconnectRequest =
         NSNotification.Name(rawValue: "disconnect")
 
-    let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+    let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
 
     //Data
     var centralManager : CBCentralManager!
