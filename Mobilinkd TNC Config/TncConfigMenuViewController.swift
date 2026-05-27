@@ -129,7 +129,7 @@ class TncConfigMenuViewController : UITableViewController {
     var rxReversePolarity : Bool?
     var txReversePolarity : Bool?
 
-    let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+    let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
