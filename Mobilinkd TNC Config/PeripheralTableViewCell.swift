@@ -16,6 +16,8 @@ class PeripheralTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        peripheralLabel.accessibilityIdentifier = "peripheralLabel"
+        rssiLabel.accessibilityIdentifier = "rssiLabel"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
