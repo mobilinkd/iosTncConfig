@@ -480,6 +480,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Connect to device where the peripheral is connected
         let cell = tableView.dequeueReusableCell(withIdentifier: "BlueCell") as! PeripheralTableViewCell
+        cell.accessibilityIdentifier = "deviceCell_\(indexPath.row)"
         let peripheral = self.peripherals[indexPath.row]
         let RSSI = self.RSSIs[indexPath.row]
         
