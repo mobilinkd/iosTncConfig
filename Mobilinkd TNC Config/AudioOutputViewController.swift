@@ -31,9 +31,6 @@ class AudioOutputViewController: UIViewController {
     
     var tone = Tone.MARK
 
-    var lastOutputGainUpdateTime = CACurrentMediaTime()
-    var lastOutputTwistUpdateTime = CACurrentMediaTime()
-
     @IBOutlet weak var pttStyleSwitch: UISegmentedControl!
     
     @IBOutlet weak var audioOutputGainSlider: UISlider!
@@ -75,10 +72,7 @@ class AudioOutputViewController: UIViewController {
     
     @IBAction func audioOutputGainChanged(_ sender: UISlider) {
         updateOutputGain(value: Int16(audioOutputGainSlider.value))
-        if CACurrentMediaTime() - lastOutputGainUpdateTime > 0.1 {
-            sendData(KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
-            lastOutputGainUpdateTime = CACurrentMediaTime()
-        }
+        sendData(KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
     }
     
     func updateOutputGain(value : Int16) {
@@ -92,7 +86,6 @@ class AudioOutputViewController: UIViewController {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
-        lastOutputGainUpdateTime = CACurrentMediaTime()
         NotificationCenter.default.post(
             name: TncConfigMenuViewController.tncModifiedNotification,
             object: nil)
@@ -100,12 +93,7 @@ class AudioOutputViewController: UIViewController {
     
     @IBAction func audioOutputTwistChanged(_ sender: Any) {
         updateOutputTwist(value: Int8(audioOutputTwistSlider.value))
-        if CACurrentMediaTime() - lastOutputTwistUpdateTime > 0.1 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
-            lastOutputTwistUpdateTime = CACurrentMediaTime()
-        }
+        sendData(KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
     }
     
     func updateOutputTwist(value : Int8) {
@@ -119,7 +107,6 @@ class AudioOutputViewController: UIViewController {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
-        lastOutputTwistUpdateTime = CACurrentMediaTime()
         NotificationCenter.default.post(
             name: TncConfigMenuViewController.tncModifiedNotification,
             object: nil)
