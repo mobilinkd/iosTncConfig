@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		588CF3E4A08FBAE2E8007F8800000001 /* BleWriteQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588CF3E4A08FBAE2E8007F8800000002 /* BleWriteQueue.swift */; };
+
 		D42E9D7623FCD3B4002268E3 /* ModemConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E9D7523FCD3B4002268E3 /* ModemConfigurationViewController.swift */; };
 		D44EE5D521D9848100D0FC33 /* SlipProtocolDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */; };
 		D44EE5D721D98B2F00D0FC33 /* KissPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */; };
@@ -26,9 +28,12 @@
 		D5B24DE61DEE393B00D33B5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B24DE41DEE393B00D33B5A /* LaunchScreen.storyboard */; };
 		D5B24DEE1DEE399800D33B5A /* BLECentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */; };
 		D5B24DF11DEF153A00D33B5A /* PeripheralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B24DEF1DEF153A00D33B5A /* PeripheralTableViewCell.swift */; };
+		2D3DBC61C6F34152AECE6569 /* iosTncConfigUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9263830AE74672BB81405A /* iosTncConfigUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		588CF3E4A08FBAE2E8007F8800000002 /* BleWriteQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleWriteQueue.swift; sourceTree = "<group>"; };
+
 		D42E9D7523FCD3B4002268E3 /* ModemConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModemConfigurationViewController.swift; sourceTree = "<group>"; };
 		D44EE5D421D9848100D0FC33 /* SlipProtocolDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlipProtocolDecoder.swift; sourceTree = "<group>"; };
 		D44EE5D621D98B2F00D0FC33 /* KissPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KissPacket.swift; sourceTree = "<group>"; };
@@ -51,6 +56,8 @@
 		D5B24DE71DEE393B00D33B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralViewController.swift; sourceTree = "<group>"; };
 		D5B24DEF1DEF153A00D33B5A /* PeripheralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralTableViewCell.swift; sourceTree = "<group>"; };
+		5C9263830AE74672BB81405A /* iosTncConfigUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosTncConfigUITests.swift; sourceTree = "<group>"; };
+		27ED853C775F421E9F83E13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +76,7 @@
 			children = (
 				D5B24DDA1DEE393B00D33B5A /* Mobilinkd TNC Config */,
 				D5B24DD91DEE393B00D33B5A /* Products */,
+			1CBC2F5BBBCF4601B442562E /* iosTncConfigUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +94,7 @@
 				D44EE5DC21DF060700D0FC33 /* logo.png */,
 				D5B24DDB1DEE393B00D33B5A /* AppDelegate.swift */,
 				D5B24DED1DEE399800D33B5A /* BLECentralViewController.swift */,
+				588CF3E4A08FBAE2E8007F8800000002 /* BleWriteQueue.swift */,
 				D5B24DEF1DEF153A00D33B5A /* PeripheralTableViewCell.swift */,
 				D50657231DF2F4C8002B7557 /* UUIDKey.swift */,
 				D5B24DDF1DEE393B00D33B5A /* Main.storyboard */,
@@ -105,6 +114,15 @@
 				D480B12724033B8E008FDC62 /* Localizable.strings */,
 			);
 			path = "Mobilinkd TNC Config";
+			sourceTree = "<group>";
+		};
+		1CBC2F5BBBCF4601B442562E /* iosTncConfigUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5C9263830AE74672BB81405A /* iosTncConfigUITests.swift */,
+				27ED853C775F421E9F83E13A /* Info.plist */,
+			);
+			path = iosTncConfigUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +146,24 @@
 			productName = "Basic Chat";
 			productReference = D5B24DD81DEE393B00D33B5A /* Mobilinkd TNC Config.app */;
 			productType = "com.apple.product-type.application";
+		};
+		42A1B6E015CB4DCEAD79F1FA /* Target dependency */ = {isa = PBXTargetDependency; target = D5B24DD71DEE393B00D33B5A /* Mobilinkd TNC Config */; };
+		0DB8BE4A11074A9F80AF820E /* iosTncConfigUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 544BC2FF411B4091A7EF91F4 /* Build configuration list for PBXNativeTarget "iosTncConfigUITests" */;
+			buildPhases = (
+				0E3326B037624360A6141D3A /* Sources */,
+				B19324005A7240E78D7E8F1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42A1B6E015CB4DCEAD79F1FA /* Target dependency */,
+			);
+			name = iosTncConfigUITests;
+			productName = iosTncConfigUITests;
+			productReference = 27ED853C775F421E9F83E13A /* Info.plist */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -161,9 +197,19 @@
 			projectRoot = "";
 			targets = (
 				D5B24DD71DEE393B00D33B5A /* Mobilinkd TNC Config */,
+			0DB8BE4A11074A9F80AF820E /* iosTncConfigUITests */,
 			);
 		};
 /* End PBXProject section */
+
+		0E3326B037624360A6141D3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D3DBC61C6F34152AECE6569 /* iosTncConfigUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 
 /* Begin PBXResourcesBuildPhase section */
 		D5B24DD61DEE393B00D33B5A /* Resources */ = {
@@ -175,6 +221,13 @@
 				D5B24DE31DEE393B00D33B5A /* Assets.xcassets in Resources */,
 				D5B24DE11DEE393B00D33B5A /* Main.storyboard in Resources */,
 				D44EE5DD21DF060700D0FC33 /* logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B19324005A7240E78D7E8F1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +282,7 @@
 				D44EE5DB21D9CA6200D0FC33 /* SlipProtocolEncoder.swift in Sources */,
 				D48E9B2E21D8693F0081E99D /* KissParametersViewController.swift in Sources */,
 				D5B24DEE1DEE399800D33B5A /* BLECentralViewController.swift in Sources */,
+				588CF3E4A08FBAE2E8007F8800000001 /* BleWriteQueue.swift in Sources */,
 				D44EE5D521D9848100D0FC33 /* SlipProtocolDecoder.swift in Sources */,
 				D42E9D7623FCD3B4002268E3 /* ModemConfigurationViewController.swift in Sources */,
 				D5B24DDC1DEE393B00D33B5A /* AppDelegate.swift in Sources */,
@@ -411,6 +465,54 @@
 			};
 			name = Release;
 		};
+		72511907D8B641D0A5529372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited) $(TARGET_BUILD_DIR)/Mobilinkd_TNC_Config";
+				INFOPLIST_FILE = "$(SRCROOT)/iosTncConfigUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilinkd.iosConfigApp.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EADCB26A35074254898B7DC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited) $(TARGET_BUILD_DIR)/Mobilinkd_TNC_Config";
+				INFOPLIST_FILE = "$(SRCROOT)/iosTncConfigUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilinkd.iosConfigApp.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -428,6 +530,15 @@
 			buildConfigurations = (
 				D5B24DEB1DEE393B00D33B5A /* Debug */,
 				D5B24DEC1DEE393B00D33B5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		544BC2FF411B4091A7EF91F4 /* Build configuration list for PBXNativeTarget "iosTncConfigUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72511907D8B641D0A5529372 /* Debug */,
+				EADCB26A35074254898B7DC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
