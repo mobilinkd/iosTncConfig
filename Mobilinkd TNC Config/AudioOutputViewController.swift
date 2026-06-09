@@ -31,6 +31,9 @@ class AudioOutputViewController: UIViewController {
     
     var tone = Tone.MARK
 
+    var lastOutputGainUpdateTime = CACurrentMediaTime()
+    var lastOutputTwistUpdateTime = CACurrentMediaTime()
+
     @IBOutlet weak var pttStyleSwitch: UISegmentedControl!
     
     @IBOutlet weak var audioOutputGainSlider: UISlider!
@@ -72,7 +75,10 @@ class AudioOutputViewController: UIViewController {
     
     @IBAction func audioOutputGainChanged(_ sender: UISlider) {
         updateOutputGain(value: Int16(audioOutputGainSlider.value))
-        sendData(KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
+        if CACurrentMediaTime() - lastOutputGainUpdateTime > 0.25 {
+            sendData(KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
+            lastOutputGainUpdateTime = CACurrentMediaTime()
+        }
     }
     
     func updateOutputGain(value : Int16) {
@@ -93,7 +99,10 @@ class AudioOutputViewController: UIViewController {
     
     @IBAction func audioOutputTwistChanged(_ sender: Any) {
         updateOutputTwist(value: Int8(audioOutputTwistSlider.value))
-        sendData(KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
+        if CACurrentMediaTime() - lastOutputTwistUpdateTime > 0.25 {
+            sendData(KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
+            lastOutputTwistUpdateTime = CACurrentMediaTime()
+        }
     }
     
     func updateOutputTwist(value : Int8) {
