@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <LaunchConfiguration>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D5B24DD71DEE393B00D33B5A"
+            BuildableName = "Mobilinkd TNC Config.app"
+            BlueprintName = "Mobilinkd TNC Config"
+            ReferencedContainer = "container:Mobilinkd TNC Config.xcodeproj">
+         </BuildableReference>
+      </LaunchConfiguration>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -35,8 +44,29 @@
             BlueprintName = "Mobilinkd TNC Config"
             ReferencedContainer = "container:Mobilinkd TNC Config.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0DB8BE4A11074A9F80AF820E"
+            BuildableName = "iosTncConfigUITests.bundle"
+            BlueprintName = "iosTncConfigUITests"
+            ReferencedContainer = "container:Mobilinkd TNC Config.xcodeproj">
+         </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            friendlyName = "iosTncConfigUITests"
+            targetBuildProductContainer = "container:Mobilinkd TNC Config.xcodeproj"
+            blueprintAbsolutePath = "/Users/rob/git/iosTncConfig/Mobilinkd TNC Config.xcodeproj"
+            blueprintIdentifier = "0DB8BE4A11074A9F80AF820E">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0DB8BE4A11074A9F80AF820E"
+               BuildableName = "iosTncConfigUITests.bundle"
+               BlueprintName = "iosTncConfigUITests"
+               ReferencedContainer = "container:Mobilinkd TNC Config.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

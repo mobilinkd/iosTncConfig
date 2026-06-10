@@ -41,27 +41,16 @@ func disconnectBle() {
         object: nil)
 }
 
-/*
- * Don't use the notification center to post the message.  Write it directly
- * to the peripheral's characteristic.  This is an attempt to reduce write
- * latency but it may introduce some ordering of operations issues.
- */
 func sendDataNow(_ data: Data) {
-    guard let peripheral = blePeripheral, let characteristic = txCharacteristic else { return }
-    peripheral.writeValue(data, for: characteristic,
-        type: CBCharacteristicWriteType.withoutResponse)
+    BleWriteQueue.shared.enqueue(data)
 }
 
 /*
- * Post a write request to the notification center.  This preserves global
- * ordering of write operations (actually all operations).  For example, it
- * will ensure that all writes posted will occur before a later disconnect
- * request is received through the notification center.
+ * Enqueue data to the BLE write queue.  The queue preserves ordering
+ * and batches writes.
  */
 func sendData(_ data: Data) {
-    NotificationCenter.default.post(
-        name: BLECentralViewController.bleDataSendNotification,
-        object: data)
+    BleWriteQueue.shared.enqueue(data)
 }
 
 class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
@@ -272,11 +261,9 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     
     @objc func bleSend(notification: NSNotification) {
         print("bleSend")
-        guard let peripheral = blePeripheral, let characteristic = txCharacteristic else { return }
         if let data = notification.object as? Data {
             print("sending: \((data.hexEncodedString() as String))")
-            peripheral.writeValue(data, for: characteristic,
-                type: CBCharacteristicWriteType.withoutResponse)
+            BleWriteQueue.shared.enqueue(data)
         }
     }
 
@@ -417,7 +404,8 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         if (characteristic.isNotifying) {
             print("Subscribed. Notification has begun for: \(characteristic.uuid)")
             print("Using a negotiated MTU of: \(peripheral.maximumWriteValueLength(for: .withoutResponse))")
-            
+            BleWriteQueue.shared.configure(peripheral: peripheral, characteristic: txCharacteristic)
+
             // Only move to the next scene after notification registration is complete.
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -440,6 +428,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
         didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
     {
         print("Disconnected")
+        BleWriteQueue.shared.configure(peripheral: nil, characteristic: nil)
 
         if error != nil {
             print("didDisconnectPeripheral: \(error.debugDescription)")
@@ -480,6 +469,7 @@ class BLECentralViewController : UIViewController, CBCentralManagerDelegate,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Connect to device where the peripheral is connected
         let cell = tableView.dequeueReusableCell(withIdentifier: "BlueCell") as! PeripheralTableViewCell
+        cell.accessibilityIdentifier = "deviceCell_\(indexPath.row)"
         let peripheral = self.peripherals[indexPath.row]
         let RSSI = self.RSSIs[indexPath.row]
         

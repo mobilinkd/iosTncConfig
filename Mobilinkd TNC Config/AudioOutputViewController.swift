@@ -75,7 +75,7 @@ class AudioOutputViewController: UIViewController {
     
     @IBAction func audioOutputGainChanged(_ sender: UISlider) {
         updateOutputGain(value: Int16(audioOutputGainSlider.value))
-        if CACurrentMediaTime() - lastOutputGainUpdateTime > 0.1 {
+        if CACurrentMediaTime() - lastOutputGainUpdateTime > 0.25 {
             sendData(KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
             lastOutputGainUpdateTime = CACurrentMediaTime()
         }
@@ -92,7 +92,6 @@ class AudioOutputViewController: UIViewController {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.SetAudioOutputGain(value: audioOutputGain!))
-        lastOutputGainUpdateTime = CACurrentMediaTime()
         NotificationCenter.default.post(
             name: TncConfigMenuViewController.tncModifiedNotification,
             object: nil)
@@ -100,10 +99,8 @@ class AudioOutputViewController: UIViewController {
     
     @IBAction func audioOutputTwistChanged(_ sender: Any) {
         updateOutputTwist(value: Int8(audioOutputTwistSlider.value))
-        if CACurrentMediaTime() - lastOutputTwistUpdateTime > 0.1 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
+        if CACurrentMediaTime() - lastOutputTwistUpdateTime > 0.25 {
+            sendData(KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
             lastOutputTwistUpdateTime = CACurrentMediaTime()
         }
     }
@@ -119,7 +116,6 @@ class AudioOutputViewController: UIViewController {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.SetAudioOutputTwist(value: audioOutputTwist!))
-        lastOutputTwistUpdateTime = CACurrentMediaTime()
         NotificationCenter.default.post(
             name: TncConfigMenuViewController.tncModifiedNotification,
             object: nil)

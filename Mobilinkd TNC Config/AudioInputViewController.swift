@@ -30,10 +30,8 @@ class AudioInputViewController: UIViewController {
         audioInputGain = Int16(audioInputGainSlider.value)
         audioInputGainSlider.value = Float(audioInputGain!)
         audioInputGainLabel.text = String(format: "%d", audioInputGain!)
-        if CACurrentMediaTime() - lastInputGainUpdateTime > 0.1 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.SetAudioInputGain(value: audioInputGain!))
+        if CACurrentMediaTime() - lastInputGainUpdateTime > 0.25 {
+            sendData(KissPacketEncoder.SetAudioInputGain(value: audioInputGain!))
             lastInputGainUpdateTime = CACurrentMediaTime()
             NotificationCenter.default.post(
                 name: TncConfigMenuViewController.tncModifiedNotification,
@@ -52,7 +50,6 @@ class AudioInputViewController: UIViewController {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.SetAudioInputGain(value: audioInputGain!))
-        lastInputGainUpdateTime = CACurrentMediaTime()
         NotificationCenter.default.post(
             name: TncConfigMenuViewController.tncModifiedNotification,
             object: nil)
@@ -60,10 +57,8 @@ class AudioInputViewController: UIViewController {
     
     @IBAction func audioInputTwistChanged(_ sender: UISlider) {
         updateInputTwist(value: Int8(audioInputTwistSlider.value))
-        if CACurrentMediaTime() - lastInputTwistUpdateTime > 0.1 {
-            NotificationCenter.default.post(
-                name: BLECentralViewController.bleDataSendNotification,
-                object: KissPacketEncoder.SetAudioInputTwist(value: audioInputTwist!))
+        if CACurrentMediaTime() - lastInputTwistUpdateTime > 0.25 {
+            sendData(KissPacketEncoder.SetAudioInputTwist(value: audioInputTwist!))
             lastInputTwistUpdateTime = CACurrentMediaTime()
             NotificationCenter.default.post(
                 name: TncConfigMenuViewController.tncModifiedNotification,
@@ -82,7 +77,6 @@ class AudioInputViewController: UIViewController {
         NotificationCenter.default.post(
             name: BLECentralViewController.bleDataSendNotification,
             object: KissPacketEncoder.SetAudioInputTwist(value: audioInputTwist!))
-        lastInputTwistUpdateTime = CACurrentMediaTime()
         NotificationCenter.default.post(
             name: TncConfigMenuViewController.tncModifiedNotification,
             object: nil)
@@ -104,10 +98,10 @@ class AudioInputViewController: UIViewController {
     
     var audioInputGain : Int16?
     var audioInputTwist : Int8?
-    
+
     var lastInputGainUpdateTime = CACurrentMediaTime()
     var lastInputTwistUpdateTime = CACurrentMediaTime()
-    
+
     let log2 = log(Float(2.0))
     
     // SlipProtocolDecoder maintains state to handle packets that are split
